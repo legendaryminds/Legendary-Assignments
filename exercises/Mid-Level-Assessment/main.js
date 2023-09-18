@@ -2,35 +2,30 @@
 //   this.title = title;
 //   this.author = author;
 //   this.year = year;
-//   this.printProfile = function () {
+//   this.printProfile = function() {
 //       console.log("title:", title);
 //       console.log("author:", author);
 //       console.log("year:", year);
 //   }
 // }
 
-class Book{
-  constructor(Title, Author, Year) {
-    this.Title = Title;
-    this.Author = Author;
-    this.Year = Year;
-  }
-  getDetails() {
-    console.log("Title:", this.Title);
-    console.log("Author:", this.Author);
-    console.log("Year:", this.Year);
-  }
-}
+// class Book{
+//   constructor(Title, Author, Year) {
+//     this.Title = Title;
+//     this.Author = Author;
+//     this.Year = Year;
+//   }
+//   getDetails() {
+//     console.log("Title:", this.Title);
+//     console.log("Author:", this.Author);
+//     console.log("Year:", this.Year);
+//   }
+// }
 
 const book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925);
 
-// console.log(book1.getDetails());
-
-
 const book2 = new Book("To Kill a Mockingbird", "Harper Lee", 1960)
 
-// console.log(book2.getDetails());
-
-// console.log(book2)
-
-// console.log(book1)
+// book1.printProfile();
+ 
+// book1.getDetails();
