@@ -10,10 +10,10 @@
 // }
 
 class Book{
-  constructor(Title, author, year) {
+  constructor(Title, Author, Year) {
     this.Title = Title;
-    this.Author = this.Authoruthor;
-    this.Year = year;
+    this.Author = Author;
+    this.Year = Year;
   }
   getDetails() {
     console.log("Title:", this.Title);
@@ -29,7 +29,7 @@ const book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925);
 
 const book2 = new Book("To Kill a Mockingbird", "Harper Lee", 1960)
 
-console.log(book2.getDetails());
+// console.log(book2.getDetails());
 
 // console.log(book2)
 
