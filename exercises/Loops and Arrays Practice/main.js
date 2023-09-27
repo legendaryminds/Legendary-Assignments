@@ -18,44 +18,119 @@ var peopleWhoWantToSeeMadMaxFuryRoad = [
   {
     name: "Mike",
     age: 12,
-    gender: "male",
+    gender: ["male", "HIM"
+      // {
+      //   pronoun: "he",
+      //   possPronoun: "his",
+      //   possAdjective: "his",
+      //   object: "him",
+      //   moniker: "sir",
+      // },
+    ],
   },
   {
     name: "Madeline",
     age: 80,
-    gender: "female",
+    gender: ["female", "SHE'S"]
+      // { pronoun: "she",
+      //   possPronoun: "hers",
+      //   possAdjective: "her",
+      //   object: "her",
+      //   moniker: "ma'am",
+      // }
+    ,
   },
   {
     name: "Cheryl",
     age: 22,
-    gender: "female",
+    gender: ["female", "SHE'S"
+      // {
+      //   pronoun: "she",
+      //   possPronoun: "hers",
+      //   possAdjective: "her",
+      //   object: "her",
+      //   moniker: "ma'am",
+      // },
+    ],
   },
   {
     name: "Sam",
     age: 30,
-    gender: "male",
+    gender: ["male", "HE'S"
+      // {
+      //   pronoun: "he",
+      //   possPronoun: "his",
+      //   possAdjective: "his",
+      //   object: "him",
+      //   moniker: "sir",
+      // },
+    ],
   },
   {
     name: "Suzy",
     age: 4,
-    gender: "female",
+    gender: ["female", "Her"
+      // {
+      //   pronoun: "she",
+      //   possPronoun: "hers",
+      //   possAdjective: "her",
+      //   object: "her",
+      //   moniker: "ma'am",
+      // },
+    ],
   },
 ];
 
 for (var i = 0; i < peopleWhoWantToSeeMadMaxFuryRoad.length; i++) {
     if (peopleWhoWantToSeeMadMaxFuryRoad[i].age >= 18){
-        console.log (peopleWhoWantToSeeMadMaxFuryRoad[i].name + " old enough")
+        console.log(
+          peopleWhoWantToSeeMadMaxFuryRoad[i].name +
+            " is old enough to see Mad Max." + " " +
+              peopleWhoWantToSeeMadMaxFuryRoad[i].gender[1] +
+            " good to see Mad Max Fury Road."
+        );
     }
     else if (peopleWhoWantToSeeMadMaxFuryRoad[i].age <= 17) {
-        console.log(peopleWhoWantToSeeMadMaxFuryRoad[i].name + " not old enough");
+        console.log(
+          peopleWhoWantToSeeMadMaxFuryRoad[i].name +
+            " is not old enough to see Mad Max," +
+            " don't let " +
+            peopleWhoWantToSeeMadMaxFuryRoad[i].gender[1]
+         + " in!");
     }
 }
 
-// console.log(peopleWhoWantToSeeMadMaxFuryRoad);
 
 
-// var person = {
-//   name: "Suzy",
-//   age: 4,
-//   gender: "female",
-// };
+// Log to the console a personalized message like:
+
+// `Mike is not old enough to see Mad Max`
+
+// or
+
+// `Madeline is old enough to see Mad Max.`
+
+// Check to see if the movie goer is a male or female for an even more personalized message.
+
+// `Mike is not old enough to see Mad Max Fury Road, don't let HIM in.`
+
+// or
+
+// `Madeline is old enough. SHE'S good to see Mad Max Fury Road.`
+
+const gender = {
+  male: {
+    pronoun: "he",
+    possPronoun: "his",
+    possAdjective: "his",
+    object: "him",
+    moniker: "sir",
+  },
+  female: {
+    pronoun: "she",
+    possPronoun: "hers",
+    possAdjective: "her",
+    object: "her",
+    moniker: "ma'am",
+  },
+};
