@@ -1,0 +1,42 @@
+.container {
+    display: grid;
+    grid-gap:5px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-auto-rows: 100px;
+
+}
+
+
+
+/* .container {
+    height: 100%;
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 40px auto 40px;
+    grid-template-areas:
+        ". h h h h h h h h h h ."
+        "m c c c c c c c c c c ."
+        ".  f f f f f f f f f f .";
+}
+
+
+.header {
+    background-color: darkturquoise;
+    grid-column: h;
+}
+
+.menu {
+    background-color: indianred;
+    grid-row: m;
+}
+
+.content {
+    background-color: aquamarine;
+    grid-column: c;
+}
+
+.footer {
+    background-color: darkgoldenrod;
+    grid-column: f;
+} */

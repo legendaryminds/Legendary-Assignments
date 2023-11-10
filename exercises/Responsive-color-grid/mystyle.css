@@ -1,0 +1,101 @@
+/* To practice media queries,
+you must make this color grid keep it's regular form (look like the picture above) on screens above 768px (large screens). Once below 768px(small screens), each color must expand to the full-width of its container, so it looks like this: */
+@media only screen and (min-width: 768px) {
+
+* {
+    box-sizing: border-box;
+    border-color: white;
+    border:
+    font-size: 0px;
+}
+
+.topRectangle {
+        height: 50px;
+        width: 100%;
+        background-color: #F5C6D6;
+        display: inline-block;
+        }
+
+.rectangle {
+    height: 50px;
+    width: 24.5%;
+    display: inline-block;
+    white-space: pre;
+    background-color: #EE2E84;
+    }
+
+.thirdRow1 {
+    height: 50px;
+    width: 49.5%;
+    display: inline-block;
+    background-color: #85CFD8;
+    }
+
+.thirdRow2 {
+    height: 50px;
+    width: 49.5%;
+    display: inline-block;
+    background-color: #85CFD8;
+   }
+
+.finalRow1 {
+    height: 50px;
+    width: 74.5%;
+    display: inline-block;
+    background-color: #8DC63F;
+    }
+
+.finalRow2 {
+    height: 50px;
+    width: 24.5%;
+    display: inline-block;
+    background-color: #E76E34;
+    }
+
+
+}
+
+@media only screen and (max-width: 767px) {
+    * {
+            box-sizing: border-box;
+            font-size: 0px;
+            margin-bottom: 5px;
+        }
+    
+        .topRectangle {
+            height: 50px;
+            width: 100%;
+            background-color: #F5C6D6;
+            }
+    
+        .rectangle {
+            height: 50px;
+            width: 100%;
+            background-color: #EE2E84;
+            }
+    
+        .thirdRow1 {
+            height: 50px;
+            width: 100%;
+            background-color: #85CFD8;
+            }
+    
+        .thirdRow2 {
+            height: 50px;
+            width: 100%;
+            background-color: #85CFD8;
+            }
+    
+        .finalRow1 {
+            height: 50px;
+            width: 100%;
+            background-color: #8DC63F;
+            }
+    
+        .finalRow2 {
+            height: 50px;
+            width: 100%;
+            background-color: #E76E34;
+         }
+
+}

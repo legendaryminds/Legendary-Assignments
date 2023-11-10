@@ -1,0 +1,331 @@
+/* Mobile Large 620px
+@media screen and (max-width: 739px) {
+    .container {
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-rows: 120px 120px 120px 120px 120px;
+    }
+
+    #header {
+          border-radius: 10px;
+          grid-column: 1/-1;
+          grid-row: 1/2;
+      }
+
+    #navbar {
+             background-color: lightcoral;
+             border-radius: 10px;
+             grid-column: 1/-1;
+             grid-row: 2/4;
+             width: 100%;
+    }
+
+         .a {
+             list-style-type: square;
+             line-height: 2.25;
+             color: black;
+         }
+
+    #content {
+        background-color: darksalmon;
+        border-radius: 10px;
+        grid-column: 1/-1;
+        grid-row: 4/8;
+        padding-left: 20px;
+        padding-right: 20px;  
+    }
+
+    #sidebar2 {
+        background-color: rgb(14, 14, 15);
+        grid-column: 1/-1;
+        grid-row: 9;
+        width: 100%;
+
+    }
+
+    #footer {
+        background-color:indianred;
+        border-radius: 10px;
+        grid-column: 1/-1;
+        grid-row: 8;
+        width: 100%;
+    }
+}
+
+/*Tablet Small 740px*/
+/* @media screen and (min-width: 740px) {
+    .container {
+        display: grid;
+        grid-gap: 7px;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-rows: 125px 300px 100px 100px
+    }
+
+    #header {
+        border-radius: 10px;
+        grid-column: 1/-1;
+        grid-row: 1/2;
+    } */
+
+    /* #navbar {
+        background-color: lightcoral;
+        border-radius: 10px;
+        grid-column: 1/3;
+        grid-row: 2/3;
+        padding-bottom: 20;
+    }
+
+        .a {
+            list-style-type: square;
+            line-height: 2.25;
+            color: black;
+        }
+
+    #content {
+        background-color: darksalmon;
+        border-radius: 10px;
+        grid-column: 3/-1;
+        grid-row: 2/3;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #sidebar2 {
+        background-color: black;
+        border-radius: 10px;
+        grid-column: 3/-1;
+        grid-row: 3; */
+    /* }
+
+    #footer {
+        background-color: indianred;
+        border-radius: 10px;
+        grid-column: 1/3;
+        grid-row: 3/58;
+        line-height: 2.40;
+        padding-right: 2px;
+    }
+
+} */ */
+
+/*15.5 Desktop Medium 1100px */
+/* @media screen and (min-width: 1100px) {
+    .container {
+        display: grid;
+        grid-gap: 4px;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-rows: 125px 300px 100px;
+    }
+
+    #header {
+        border-radius: 10px;
+        grid-column: 1/-1;
+        grid-row: 1/2;
+    }
+
+    #navbar {
+        background-color: lightcoral;
+        border-radius: 10px;
+        grid-column: 1/3;
+        grid-row: 2/4;   
+    }
+
+    .fa{
+        color:rgb(108, 18, 18);
+        padding-right: 7px;
+    }
+
+    .a{
+        list-style-type: square;
+        line-height: 3.5;
+        color:black;
+    }
+
+    #content {
+        background-color:darksalmon;
+        border-radius: 10px;
+        grid-column: 3/10;
+        grid-row: 2/4;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    #sidebar2 {
+        background-color:rgb(4, 4, 4);
+        border-radius: 10px;
+        grid-column: 10/-1;
+        grid-row: 2/4;
+        padding-top: 50px
+    }
+
+
+    #footer {
+        position: absolute;
+        bottom: 0;
+        background-color:indianred;
+        border-radius: 10px;
+        /* grid-column: 1/-1; 
+        grid-row: 5/9;  */
+    /* }
+
+    .b {
+    display:inline-block;
+    text-indent: 10 px;
+
+    }
+
+    .b li {
+    display: inline-block;
+    padding-right: 70px;
+    padding-top: 15px;
+    }
+} */
+
+/* @media screen and (min-width: 1100px) {
+    .container {
+        display: flex; */
+        /* Change display to flex */
+        /* gap: 4px; */
+        /* Use 'gap' instead of 'grid-gap' for flexbox */
+        /* flex-wrap: wrap */
+
+        /* flex-wrap: wrap; */
+        /* Enable flex wrap */
+    /* } */
+
+    /* Update individual sections */
+    /* #header {
+         position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        flex: 1 1 100%;
+        border-radius: 10px; */
+        /* flex: 1 1 100%; */
+        /* Flex properties to occupy full width */
+        /* Remove grid-specific properties */
+    /* } */
+
+    /* #navbar {
+        background-color: lightcoral;
+        border-radius: 10px;
+        flex: 1 0 33.33%; */
+        /* Adjust width to occupy 1/3 of the available space */
+        /* Remove grid-specific properties */
+    /* } */
+
+        /* #content {
+            background-color: darksalmon;
+            border-radius: 10px;
+            flex: 1 0 33.33%;; */
+            /* Adjust width to occupy 50% of the available space */
+            /* You might also need to adjust other flex properties or the container to fit your layout */
+        /* } */
+
+        /* flex: 0 0 66.66%; */
+        /* Adjust width to occupy 2/3 of the available space */
+        /* Remove grid-specific properties */
+    
+
+    /* #sidebar2 {
+        background-color: rgb(4, 4, 4);
+        border-radius: 10px;
+        flex: 1 0 33.33%; */
+        /* Adjust width to occupy 1/3 of the available space */
+        /* Remove grid-specific properties */
+    /* } */
+
+    /* #footer {
+        position: fixed; */
+        /* Change to fixed for sticky footer */
+        /* bottom: 0;
+        left: 0; */
+        /* Stick to the left */
+        /* right: 0; */
+        /* Stick to the right */
+        /* background-color: indianred;
+        border-radius: 10px; */
+        /* Remove grid-specific properties */
+    /* } */
+
+    /* Styling for list items in the footer */
+    /* .b { */
+        /* display: flex; */
+        /* Make list items flex children */
+        /* justify-content: space-evenly; */
+        /* Spread items evenly */
+        /* padding: 20px; */
+        /* Adjust padding */
+    /* } */
+/* @media screen and (min-width: 1100px) { */
+    .container {
+        display: flex;
+        flex-direction: column;
+        /* Adjusted to stack items vertically */
+        /* gap: 5px; */
+    }
+
+    #header {    
+        border-radius: 10px;
+    }
+
+    .row {
+        display: flex;
+        /* Added for the row containing the three sections */
+    }
+
+    #navbar,
+    #content,
+    #sidebar2 {
+        flex: 1;
+        /* Allow sections to take equal available space in a row */
+        padding: 20px;
+        margin: 2px;
+        border-radius: 10px;
+        /* gap: 2px; */
+    }
+
+    #navbar {
+        background-color: lightcoral;
+    }
+
+        .a {
+            display: flex;
+            flex-direction: column;
+            list-style-type: square;
+            /* line-height: 3; */
+            justify-content: space-between;
+            color: black;
+        }
+
+    #content {
+        background-color: darksalmon;
+    }
+
+    #sidebar2 {
+        background-color: rgb(4, 4, 4);
+    }
+
+    #footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background-color: indianred;
+        border-radius: 10px;
+        padding: 1 px;
+    }
+
+    .b {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 20px;
+    }
+
+    .b li {
+        list-style-type: square;
+        color: black;
+    }
+/* } */

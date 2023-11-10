@@ -11,7 +11,7 @@
 
 .name {
     
-    color: plum 
+    color:black
 }
 
 .messages {
@@ -22,6 +22,22 @@
     padding: 20px;
 }
 
+.dark-theme {
+    color:rgb(86, 38, 5);
+    background-color:teal;  
+}
+
+.theme-one {
+    color: rgb(86, 38, 5);
+    background-color: #008080;
+}
+
+.theme-two {
+    color: black;
+    background-color:crimson;
+}
+
+
 #main {
     margin: 30px;
     border: 1px solid black;
@@ -30,14 +46,15 @@
 
 .message {
     padding: 5px;
+    color: black;
 }
 
 .right {
     align-self: flex-end;
-    background-color: lightblue;
+    background-color:aquamarine;
 }
 
 .left {
     align-self: flex-start;
-    background-color: burlywood;
+    background-color:cyan;
 }
