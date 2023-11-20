@@ -26,6 +26,7 @@
     line-height: 3;
     justify-content: space-between;
     color: black;
+    font-size: larger;
 }
 
 #content {
@@ -34,6 +35,7 @@
     margin: 2px;
     border-radius: 10px;
     background-color: darksalmon;
+    font-size: larger;
 }
 
 #sidebar2 {
@@ -42,29 +44,50 @@
     margin: 2px;
     border-radius: 10px;
     background-color: rgb(4, 4, 4);
+    position: relative;
+    /* Add this property */
 }
 
+#sidebar2 div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* Set the height to 100% */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#sidebar2 iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
 #footer {
     display: flex;
-    justify-content: space-between;
     background-color: indianred;
     border-radius: 10px;
-    padding: px;
+    padding: 1 px;
     /* Optionally, you can add more styling as needed */
 }
 
 .b {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 20px;
+    /* justify-content: space-between; */
+    padding: 15px;
     list-style-type: none;
     
 }
 
 .b li {
     color: black;
-    margin-right: 77px;
+    margin-right: 67px;
+    font-size:larger
 }
 
 /* Add media queries for different screen sizes */
