@@ -1,4 +1,5 @@
 const readline = require("readline-sync");
+// readline-sync module is used to prompt the user for input.
 const playerName = readline.question("What is your name? ");
 console.log(
   `Welcome ${playerName} to the Enchanted Forest Game !!! 
@@ -12,7 +13,9 @@ console.log(
 );
 
 let isGameRunning = true;
+// This variable (isGameRunning) is used to control the main game loop. While it is true, the game continues running.
 
+// This is a class definition for the game characters. 
 class Character {
   constructor(name, healthPoints, attackPoints, inventory) {
     this.name = name;
@@ -21,8 +24,9 @@ class Character {
     this.inventory = inventory;
   }
   printInventory() {
-    console.log(`Here is your inventory.${this.inventory}`)
+    console.log(`Here is your inventory.${this.inventory}`);
     console.log();
+    // method printInventory to display the character's inventory.
   }
 }
 
@@ -32,13 +36,15 @@ const hero = new Character(playerName, 111, 9, playerInventory);
 const enemy1 = new Character("Witch Hazel", 33, 6, [" Hazel Wood Wand", " Poison Apple"]);
 const enemy2 = new Character("Gandolf the Black", 66, 4, [" Dark Crystal Wand", " Black Grimore", " Dragon's Tooth"]);
 const enemy3 = new Character("Nimrod the Dragon", 99, 7, [" Breath of Fire Spell", " Acid Tongue Charm", " Paralysis Spell"]);
+// Instances of the "Character" class for hero and enemies
 
 let enemies = [enemy1, enemy2, enemy3];
+// array of all enemies
 
 const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
-
+// random number generator. Generates between specified min & max values
 function printPlayerInfo() {
   console.log(`
     Player Information:
@@ -47,13 +53,14 @@ function printPlayerInfo() {
     Inventory: ${hero.inventory.join(", ")}
   `);
 }
-
+// Subclass for Helpers, that extends the Character class
 class Helper extends Character {
   constructor(name, healthPoints, gifts) {
     super(name, healthPoints, 0, []);
     this.gifts = gifts;
   }
 
+  // method to offer gift to player
   offerGift() {
     console.log();
     console.log(`${this.name} offers you some gifts! Choose one:`);
@@ -62,7 +69,7 @@ class Helper extends Character {
     }
 
     const giftIndex = readline.keyInSelect(this.gifts, "Choose a gift:");
-
+//  readline.keyInSelect offers a selection of gifts to players
     if (giftIndex !== -1) {
       const chosenGift = this.gifts[giftIndex];
       hero.inventory.push(chosenGift);
@@ -71,7 +78,7 @@ class Helper extends Character {
     }
   }
 }
-
+// Instances of the Helper class
 const helper1 = new Helper("Belinda The Good Witch", 50, [
   " Healing Potion x2", " Magick Scroll", " Step Softly Spell",
 ]);
@@ -89,8 +96,9 @@ const helper3 = new Helper("Gandolf The White", 50, [
 ]);
 
 let helpers = [helper1, helper2, helper3];
+// array of helpers
 
-
+// main game loop, runs as longs as "isGameRunning" = true Boolean
 while (isGameRunning) {
   
   if (enemies.length === 0) {
@@ -176,7 +184,7 @@ function fight(currEnemy) {
         console.log();
           currEnemy.inventory.splice(itemIndex, 1);
       }
-      // hero.inventory = hero.inventory.concat(currEnemy.inventory);
+      // hero.inventory = hero.inventory.concat(currEnemy.inventory); "Used below code instead"
       const healthBonus = getRandomNumber(10, 20);
       hero.healthPoints += healthBonus;
   
