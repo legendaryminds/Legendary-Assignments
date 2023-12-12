@@ -1,0 +1,52 @@
+body {
+    background-color: lightseagreen;
+    color:indigo
+}
+
+form {
+    color:indigo;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    background-color:antiquewhite;
+    /* Light gray background for text input and select */
+    color:indigo;
+    /* Text color for text input and select */
+    padding: 5px;
+    /* Add padding for better visual appearance */
+    margin-bottom: 10px;
+    /* Add margin for spacing between inputs */
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 5px;
+    /* Add margin for spacing between radio and checkbox elements */
+}
+
+button {
+    background-color:antiquewhite;
+    /* Green background color for the submit button */
+    color:indigo;
+    /* Text color for the submit button */
+    padding: 10px 15px;
+    /* Add padding for better visual appearance */
+    border: none;
+    /* Remove border for a cleaner look */
+    /* cursor:pointer; */
+    /* Change cursor to pointer on hover for better usability */
+}
+
+/* Styling for checked checkboxes */
+input[type="checkbox"]:checked {
+    color: #03fa0b;
+    /* Change text color when checkbox is checked */
+}
+
+/* Styling for checked radio buttons */
+input[type="radio"]:checked {
+    color: #4CAF50;
+    /* Change text color when radio button is checked */
+}

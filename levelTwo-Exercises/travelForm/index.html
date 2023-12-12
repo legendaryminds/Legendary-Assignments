@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelForm</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Legendary Travels</h1>
+
+<form name="tForm">
+    <input type="text" name="fName" placeholder="First Name"/>
+    <br>
+    <input type="text" name="lName"  placeholder="Last Name"/>
+    <br>
+    <input type="number" name="age"  placeholder="Age"/>
+    <br>
+    Gender: 
+    
+    Male<input type="radio" name="gender" value="Male"/>
+    Female<input type="radio" name="gender" value="Female"/>
+    Other<input type="radio" name="gender" value="Other" />
+    <br>
+    Destination: 
+    <select name="destination">
+        <option value="Paris">Select</option>
+        <option value="Paris">Paris</option>
+        <option value="Turkey">Turkey</option>
+        <option value="Peru">Peru</option>
+    </select>
+    <br>
+    Diet:
+    Regular<input type="checkbox" name="diet" value="Regular"/>
+    
+    Vegetarian<input type="checkbox" name="diet" value="Vegetarian"/>
+    
+    Vegan<input type="checkbox" name="diet" value="Vegan"/>
+    
+    Gluten-Free<input type="checkbox" name="diet" value="Gluten-Free"/>
+    
+    <br>
+    <button type="submit">Submit</button>
+</form>
+
+
+   <script src="main.js"></script>
+</body>
+</html>

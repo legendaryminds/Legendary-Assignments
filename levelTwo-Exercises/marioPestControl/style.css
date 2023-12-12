@@ -1,0 +1,10 @@
+.resize-image {
+    width: 200px;
+    /* Adjust the width as needed */
+    height: auto;
+    /* Maintain the aspect ratio */
+}
+
+h1 {
+font-family: 'New Super Mario Font U', sans-serif;
+}
