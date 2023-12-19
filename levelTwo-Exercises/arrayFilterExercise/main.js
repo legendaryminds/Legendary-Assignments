@@ -53,7 +53,7 @@
 
 // / 4) Given an array of people objects, return a new array that has filtered out all those who don't belong to the club.
 
-//ES5 
+// ES5 
 // function peopleWhoBelongToTheIlluminati(arr) {
 //     return arr.filter(function(belong) {
 //         if (belong.member === true) {
@@ -82,7 +82,7 @@
 //     { name: "Bob Ziroll", member: true }
 // ]));
 // =>
-//[ { name: 'Angelina Jolie', member: true },
+// [ { name: 'Angelina Jolie', member: true },
 //  { name: 'Paris Hilton', member: true },
 //  { name: 'Bob Ziroll', member: true } ]
 
@@ -97,16 +97,16 @@
 // }
 
 // ES6
-const ofAge = (arr) => arr.filter((oldEnough) => oldEnough.age >= 18);
-// const peopleWhoBelongToTheIlluminati = (arr) => arr.filter((belong) => belong.member);
-// test
-console.log(ofAge([
-    { name: "Angelina Jolie", age: 80 },
-    { name: "Eric Jones", age: 2 },
-    { name: "Paris Hilton", age: 5 },
-    { name: "Kayne West", age: 16 },
-    { name: "Bob Ziroll", age: 100 }
-]));
+// const ofAge = (arr) => arr.filter((oldEnough) => oldEnough.age >= 18);
+// // const peopleWhoBelongToTheIlluminati = (arr) => arr.filter((belong) => belong.member);
+// // test
+// console.log(ofAge([
+//     { name: "Angelina Jolie", age: 80 },
+//     { name: "Eric Jones", age: 2 },
+//     { name: "Paris Hilton", age: 5 },
+//     { name: "Kayne West", age: 16 },
+//     { name: "Bob Ziroll", age: 100 }
+// ]));
 // =>
-//[ { name: 'Angelina Jolie', age: 80 },
+// [ { name: 'Angelina Jolie', age: 80 },
 //  { name: 'Bob Ziroll', age: 100 } ]
