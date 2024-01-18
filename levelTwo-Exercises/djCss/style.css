@@ -1,0 +1,97 @@
+/* - Background color - Border (width, color, style) 
+- Border radius (can target each corner individually if you want) 
+- Box shadow - Height/width 
+- Margin/padding (put some text inside to better see what's happening)
+ - Position 
+ - Opacity */
+
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #eeb3d9;
+}
+
+/* .container {
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+.box {
+    width: 30%;
+        height: 100px;
+        margin: 5px;
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid #333;
+        box-shadow: 10px 10px 5px 0 #999;
+        border-radius: 10%;
+        
+}
+
+.box1 {
+    background-color: #bf6deb;
+    opacity: 1;
+}
+
+.box1:hover {
+    opacity: 0.3;
+}
+
+.box2 {
+    background-color: #bf6deb;
+    border: 2px solid #bd03d1;
+
+    transition: border 0.3s ease;
+}
+
+.box2:hover {
+    border: 4px dotted #210414;
+}
+.box3 {
+    background-color: #bf6deb;
+    transition: background-color 0.3s ease;
+    /* Transition for background color */
+}
+
+/* Hover styles for box3 only */
+.box3:hover {
+    background-color: #ecf0f1;
+    /* Change background color on hover */
+}
+
+.box4 {
+    background-color: #bf6deb;
+    margin: 10px;
+        padding: 10px;
+    }
+    
+    .box4:hover {
+        margin: 5px;
+        padding: 5px;
+    }
+
+
+.box5 {
+    background-color: #bf6deb;
+}
+
+.box5:hover {
+    transform: translate(10px, 10px);
+}
+
+.box6 {
+    background-color: #bf6deb;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .box6:hover {
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    }
+
+
+

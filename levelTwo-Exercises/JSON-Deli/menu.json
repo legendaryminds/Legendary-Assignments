@@ -1,0 +1,88 @@
+{
+    "deli-menu":[
+        {
+            "appetizers": [
+                {
+                    "name": "Korean Meatballs",
+                    "ingredients": ["Organic Beef", "Korean BBQ Sauce", "Panko"],
+                    "description": "Sweet & Spicy balls of tender beef!"
+                },
+
+                {
+                    "name": "Coconut Prawns",
+                    "ingredients": ["Jumbo Prawns", "Shredded Coconut", "Coconut Oil", "House Seasonings"],
+                    "description": "Deep fried suculent Jumbo Prawns coated with sweet coconut."
+                }
+            ]
+        },
+
+        {
+            "cold sandwiches": [
+                {
+                    "name": "Tuna Salad Sandwich",
+                    "ingredients": ["Wild Caught Tuna", "Mayo", "Mustard", "Capers", "Sourdough Bread"],
+                    "description": "Not your momma Tuna Sandwich"
+                },
+
+                {
+                    "name": "Tofu Tahini Sandwich",
+                    "ingredients": ["Organic Tofu", "Tahini", "Lettuce", "Tomato", "Seven Grain Bread"],
+                    "description": "A vegan delight"
+                }
+
+            ]
+        },
+
+        {
+            "hot sandwiches": [
+                {
+                    "name": "Triple Threat Grilled Cheese",
+                    "ingredients": ["Brie", "Gouda", "Truffle Cheddar", "Organic Butter", "Sourdough Bread"],
+                    "description": "Ooey Gooey with Goodness"
+                },
+
+                {
+                    "name": "Vegan Patty Melt",
+                    "ingredients": ["Portabella Mushroom", "Shitake Mushroom", "Veganaise", "Red Onion", "Vegan Pepper Jack Cheese"],
+                    "description": "I can't believe it's Vegan!"
+                }
+
+            ]
+        },
+
+        {
+            "desserts": [
+                {
+                    "name": "Key Lime Pie",
+                    "ingredients": ["Key Limes", "Organic Sugar", "Heavy Cream", "Cookie Crust"],
+                    "description": "Tart, Sweet, & Divine!"
+                },
+
+                {
+                    "name": "Chocolate Pudding",
+                    "ingredients": ["Semi-Sweet Chocolate", "Cream", "Irish Moss"],
+                    "description": "A Cup of Heaven!"
+                }
+
+            ]
+        },
+
+        {
+            "drinks": [
+                {
+                    "name": "Hawt Chocolate",
+                    "ingredients": ["Dark Chocolate", "Organic Sugar", "Oat Milk"],
+                    "description": "It's getting Hawt in here!"
+                },
+
+                {
+                    "name": "Rebel Rose",
+                    "ingredients": ["Tequila", "Rose Syrup", "Lime", "Grapefruit"],
+                    "description": "If you know you KNOW!"
+                }
+
+            ]
+        }
+
+    ]
+}
