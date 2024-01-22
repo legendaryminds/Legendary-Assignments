@@ -167,9 +167,10 @@
 
 // console.log (welcomeString("Janice", "Hawaii"));
 
-let firstName = "Jacob";
-let age = 20;
+// let firstName = "Jacob";
+// let age = 20;
 
-console.log(
-  `hello, my name is ${firstName}. Next year, I will be ${age + 1} years old`
-);
+// console.log(
+//   `hello, my name is ${firstName}. Next year, I will be ${age + 1} years old`
+// );
+
