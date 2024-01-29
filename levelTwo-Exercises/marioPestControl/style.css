@@ -1,10 +1,160 @@
-.resize-image {
-    width: 300px;
-    /* Adjust the width as needed */
-    height: auto;
-    /* Maintain the aspect ratio */
+/* General Styles */
+body {
+    background-image: url('https://images4.alphacoders.com/132/1324817.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    font-family: sans-serif;
 }
 
 h1 {
-font-family: 'New Super Mario Font U', sans-serif;
+    font-family: 'New Super Mario Font U', sans-serif;
+    color: black;
+    font-size: 8vw;
+}
+
+/* Content Styles */
+.content {
+    max-width: 800px;
+    margin-left: 20px;
+    margin-right: auto;
+    padding: 20px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Enemy List Styles */
+.enemy-list {
+    list-style-type: none;
+    padding: 20px;
+    margin-right: 250px;
+}
+
+.enemy-item,
+.total-coins {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.enemy-item img,
+.total-coins img {
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.resize-image {
+    width: 100px;
+    height: auto;
+}
+
+/* Input Styles */
+input[type="number"],
+.total-coins input {
+    width: 60px;
+    padding: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    margin-left: auto;
+}
+
+.total-coins label {
+    align-self: center;
+}
+
+.total-coins input {
+    margin-left: 145px;
+}
+
+/* Text-Shadow */
+.footer-item h4,.footer-item p, h1,
+.enemy-item,.total-coins {
+    text-shadow: 2px 2px 5px white;
+}
+
+/* Footer Styles */
+.footer {
+    position: relative;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    padding: 35px;
+    flex-wrap: wrap;
+    min-height: 200px;
+    background-image: none;
+    /* Remove the background image from the footer itself */
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://images6.alphacoders.com/860/860645.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 0.9;
+    /* Adjust opacity as needed */
+    z-index: -1;
+}
+
+.footer-item {
+    text-align: center; 
+}
+
+
+.footer-item h4 {
+    color: black;
+    font-family: 'New Super Mario Font U', sans-serif;
+    font-size: calc(45px + 1vw);
+    margin-top: 10px;
+}
+
+.footer-item p {
+    color: black;
+    margin-top: -70px;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .enemy-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .enemy-item input,
+    .total-coins input {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .total-coins label {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-item {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-item h4 {
+        font-size: calc(14px + 1vw);
+    }
+
+    .footer-item p {
+        margin-top: 10px;
+    }
 }

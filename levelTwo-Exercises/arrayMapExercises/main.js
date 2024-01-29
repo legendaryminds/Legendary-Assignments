@@ -1,6 +1,6 @@
-1) Make an array of numbers that are doubles of the first array
+// 1) Make an array of numbers that are doubles of the first array
 
-ES5:
+// ES5:
 function doubleNumbers(arr) {
   var doubledArray = arr.map(function (num) {
     return num * 2;
@@ -8,14 +8,14 @@ function doubleNumbers(arr) {
   return doubledArray;
 }
 
-ES6:
+// ES6:
 const doubleNumbers = arr => arr.map(num => num * 2);
 
 console.log(doubleNumbers([2, 5, 100])); // Output: [4, 10, 200]
 
 
 
-2) Take an array of numbers and make them strings
+// 2) Take an array of numbers and make them strings
 function stringItUp(arr){
   // your code here
 }
@@ -48,7 +48,7 @@ function capitalizeNames(arr) {
     var capitalizedArray = arr.map((name) => charAt(0).toUpperCase() + name.slice(1).toLowerCase())
 }
 
-3) Capitalize the first letter of each name and make the rest of the characters lowercase
+// 3) Capitalize the first letter of each name and make the rest of the characters lowercase
 ES5:
 function capitalizeNames(arr) {
     var capitalizedArray = arr.map(function (name){
@@ -68,14 +68,14 @@ Output:
 ["John", "Jacob", "Jingleheimer", "Schmidt"]
 
 
-4) Make an array of strings of the names
-ES5:
+// 4) Make an array of strings of the names
+// ES5:
 function namesOnly(arr){
     var famousPeeps = arr.map(function(person) {
         return person.name
     }); 
 
-ES6:
+// ES6:
 const namesOnly = (arr) => {
   const famousPeeps = arr.map((person) => person.name);
     return famousPeeps;
@@ -106,8 +106,8 @@ console.log(namesOnly([
 ]));
 ["Angelina Jolie", "Eric Jones", "Paris Hilton", "Kayne West", "Bob Ziroll"]
 
-5) Make an array of strings of the names saying whether or not they can go to The Matrix
-ES5:
+// 5) Make an array of strings of the names saying whether or not they can go to The Matrix
+// ES5:
 function makeStrings(arr) {
     return arr.map(function (person) {
       if (person.age >= 18) {
@@ -118,7 +118,7 @@ function makeStrings(arr) {
     });
 }
 
-ES6:
+// ES6:
 const makeStrings = (arr) => {
   return arr.map((person)  => {
     if (person.age >= 18) {
@@ -158,15 +158,15 @@ console.log(makeStrings([
 "Kayne West is under age!!",
 "Bob Ziroll can go to The Matrix"]
 
-6) Make an array of the names in h1s, and the ages in h2s
-ES5:
+// 6) Make an array of the names in h1s, and the ages in h2s
+// ES5:
 function readyToPutInTheDOM(arr) {
     return arr.map(function (person) {
       return `<h1>${person.name}</h1><h2>${person.age}</h2>`;
     });
 }
 
-ES6:
+// ES6:
 const readyToPutInTheDOM = (arr) => {
   return arr.map((person) => {
     return `<h1>${person.name}</h1><h2>${person.age}</h2>`;
