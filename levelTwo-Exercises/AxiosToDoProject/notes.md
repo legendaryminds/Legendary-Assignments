@@ -1,3 +1,15 @@
+
+/* Change fonts */
+/* Make Input fields look nicer, change font*/
+/* Make desc box inline with other boxes*/
+/* When in edit mode, have placeholder, if nothing is changed default back to original text */
+/* change checkbox to circles */
+/* fix alignment of photos */
+/* Move checkbox down so it is aligned with the title */
+
+
+
+
 You will be creating a Todo list.
 
 Use the totally rad todo API created by the legendary Bob. [Here](https://coursework.vschool.io/v-schools-todo-api-documentation/) are the docs for it.

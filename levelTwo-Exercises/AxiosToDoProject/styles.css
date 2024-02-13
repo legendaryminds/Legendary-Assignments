@@ -1,0 +1,232 @@
+/* Resets the browser default margin and padding */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://plus.unsplash.com/premium_photo-1683309563562-aa3cfde9ed10?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90oy1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Styles the container that holds the todos */
+#todos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: 40%;
+}
+
+/* Styling for individual todo items */
+.todo-item {
+    width: 100%; 
+    box-sizing: border-box;
+    margin-bottom: 20px; 
+}
+
+/* Styles the title container for centering */
+.title-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+/* Styling for the page title with specific font and shadow */
+.page-title {
+font-family: 'Miltonian Tattoo', serif;    font-size: 7vw;
+color: rgb(136, 51, 76);
+text-align: center;
+margin-top: 50px;
+margin-bottom: 20px;
+text-shadow: 4px 9px 9px rgba(0, 0, 0, 0.3);  
+overflow: hidden;
+white-space: nowrap;   
+}
+
+/* Common styles for input fields and textarea */
+input,
+textarea {
+    vertical-align: middle;
+    margin-left: 2vw;
+    font-family: 'Philosopher', sans-serif;
+}
+
+/* Additional styling for textarea */
+textarea {
+    height: 23.5px;
+    resize: vertical;
+}
+
+/* Margin adjustments for the todo form */
+#todoForm {
+    margin-top: 30px;
+    margin-bottom: -450px;
+}
+
+/* Styles the add todo button */
+#addTodo {
+    background-color: rgb(233, 173, 191);
+    color: rgb(92, 88, 88);
+    margin-left: 25px;
+    font-family: 'Philosopher', sans-serif;
+}
+
+/* Styling for todo item titles */
+h2 {
+    font-family: 'Miltonian Tattoo', serif;
+    margin-bottom: 5px;
+}
+
+/* Styling for todo item descriptions */
+p {
+    font-family: 'Philosopher', sans-serif;
+    margin-top: 0;
+}
+
+/* Styling for images within todo items */
+img {
+    display: block;
+    margin-bottom: 5px;
+    width: 300px;
+    height: auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for the price field in todo items */
+h4 {
+    font-family: 'Philosopher', sans-serif;
+    margin-top: 10px;
+    margin-bottom: 14px;
+}
+
+/* Animation for strikethrough effect on completed todos */
+.strikethrough-animation {
+    max-width: max-content; 
+    position: relative;
+    display: inline-block; 
+}
+
+.strikethrough-animation::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 5px;
+    background-color: rgb(164, 89, 111);
+    animation: strikeThrough 0.5s linear forwards; 
+}
+
+@keyframes strikeThrough {
+    from {width: 0;}
+    to {width: 100%;}
+}
+
+/* Styles the container for title and checkbox */
+.title-checkbox-container {
+    display: flex;
+    align-items: center; 
+}
+
+/* Custom styling for checkboxes */
+.custom-checkbox {
+    appearance: none;
+    background-color: azure;
+    border: 2px solid #FFD700;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    margin-top: 30px;
+    margin-left: 12px;
+}
+
+.custom-checkbox:checked {
+    background-color: #e3af03;
+}
+
+.custom-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #e3af03;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+
+/* Styles for delete and edit buttons */
+.delete-btn,
+.edit-btn {
+    background-color: rgb(164, 89, 111);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Philosopher', sans-serif;
+}
+
+.edit-btn {
+    background-color: rgb(92, 156, 120);
+    margin-left: 15px;
+}
+
+@media (max-width: 1000px) {
+
+    body,
+    .title-container,
+    #todoForm,
+    #todos {
+        margin: 0 auto;
+        padding: 10px;
+        width: 90%;
+    }
+
+    .title-container,
+    #todoForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #todos {
+        margin-top: 20px;
+    }
+
+    #todoForm {
+        margin-bottom: 20px;
+    }
+
+    #todos {
+        margin: 20px auto;
+    }
+
+    .todo-item img {
+        width: 100%;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea,
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+    .edit-btn {
+        margin-left: 2px;
+        }
+
+    #addTodo {
+        margin-left: -8px;
+    }
+}
