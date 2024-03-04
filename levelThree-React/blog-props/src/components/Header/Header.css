@@ -1,0 +1,52 @@
+.masthead {
+    position: relative;
+    background: url('Notebook.avif') no-repeat center;
+    background-size: cover;
+    padding: 130px 0px;
+    margin-top: -90px;
+    margin-bottom: 60px;
+}
+
+
+.masthead .site-heading,
+.subheading {
+    position: relative;
+    text-align: center;
+    color: white;
+    
+    
+}
+
+.masthead .site-heading {
+    font-size: 50px;
+    line-height: 1.2;
+}
+
+.masthead .subheading {
+    
+    
+    font-size: 24px;
+    line-height: 1.1;
+    display: block;
+    font-weight: 300;
+}
+
+.subheading {
+    margin-top: -50px;
+    z-index: 20;
+}
+
+.site-heading {
+    z-index: 20;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(50, 50, 50);
+    opacity: 0.2;
+    z-index: 10;
+}
