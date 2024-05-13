@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: mistyrose;
+    background-image: url("Images/cliff.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    /* Ensure items are stacked vertically */
+    justify-content: center;
+    /* Center items vertically in the container */
+    align-items: center;
+    /* Center items horizontally */
+    font-family: "Playfair", serif;
+    color: #39275c;
+}
+
+.title,
+.subtitle
+.and {
+    margin: 0;
+    /* Removes the default margin */
+    text-align: center;
+    /* Centers the text */
+    color: #39275c;
+    /* Changes the text color */
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+    /* Adds a shadow to the text */
+    font-family: "Playfair", serif;
+    /* Changes the font */
+    
+    
+}
+
+.title {
+    font-size: 4em;
+    font-weight: 700;
+    margin-bottom: -470px;
+    margin-left:-68px;
+}
+
+.subtitle {
+    font-size: 4em;
+    font-weight: 700;
+    margin-top: -100px;
+    margin-left: 810px;
+}
+
+.ampersand{
+    margin-top: 230px;
+    margin-bottom: -120px;
+    margin-left: 290px;
+    font-size: 18em;
+    font-weight: 700;
+    opacity: 0.5;
+}
+
+
+.spots-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 310px;
+    gap: 20px;
+    padding: 20px;
+    /* margin-left:90px; */
+}
+
+.spots{
+        width: 200px;
+        box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        padding: 13px;
+        padding-bottom: 20px;
+        font-family: "Berkshire Swash", cursive;
+        
+        
+}
+
+.spots img {
+    width: 100%;
+    height: 30%;
+    border-radius: 10px;
+}
+
+.places {
+    font-size: 1.5em;
+    margin: 0;
+    margin-top:20%;
+    margin-bottom: 70px;
+    color: #39275c;
+    font-weight: 700;
+}
+
+.prices {
+    font-size: 1.2em;
+    margin: 0;
+    margin-bottom: 50px;
+    color: #39275c;
+    font-weight: 700;
+}
+
+.seasons {
+    font-size: 1em;
+    margin: 0;
+    color: #39275c;
+    font-weight: 400;
+    
+}
+
+
+.value {
+    font-family: "Playfair", serif;
+    
+}
+
+.price{
+    margin: 0;
+   
+}
+
+.timeToGo{
+    display: block;
+        /* Ensures the place value appears on its own line */
+        margin-top: 15px;
+        margin-left: 20px;
+        
+    
+}
+
+
+.place {
+    display: block;
+    margin-top: 20px;
+    
+}
+
+.price-amt{
+    margin:0;
+    font-size: small;
+    margin-top: 20px;
+    font-family: "Playfair", serif;
+}

@@ -1,0 +1,28 @@
+.dice-container {
+    display: flex;
+    gap: 10px;
+    /* Adds space between each die */
+    padding-bottom: 15px;
+}
+
+.die {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    /* Set the width of the dice */
+    height: 50px;
+    /* Set the height of the dice */
+    background-color: white;
+    border: 2px solid black;
+    /* Adds a border around the dice */
+    border-radius: 5px;
+    /* Optional: Rounds the corners of the dice */
+    font-size: 20px;
+    /* Increases the font size to make the number more visible */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Optional: Adds a subtle shadow for depth */
+    
+    
+}
+

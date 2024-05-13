@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Karla", sans-serif;
+    margin: 0;
+}
+
+.main {
+    padding: 36px;
+    margin-top: 20px;
+    /* Push down the main content to prevent overlap */
+}
+
+.meme--text.top {
+    top: -25px;
+    /* Adjust this value as needed */
+}
+
+.meme--text.bottom {
+    bottom: -2px;
+    /* Adjust this value as needed */
+}
+.header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 65px;
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    color: white;
+    padding: 20px;
+        z-index: 10;
+            /* Higher z-index to keep it above content */
+}
+
+.header--image {
+    height: 100%;
+    margin-right: 6px;
+}
+
+.header--title {
+    font-size: 1.25rem;
+    margin-right: auto;
+}
+
+.header--project {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.form {
+    display: grid;
+    grid-template: 40px 40px / 1fr 1fr;
+    gap: 17px;
+    margin-top: 15px;
+    margin-bottom: 17px;
+}
+
+.form--input {
+    font-family: "Karla", sans-serif;
+    border-radius: 5px;
+    border: 1px solid #D5D4D8;
+    text-indent: 5px;
+}
+
+.form--button {
+    grid-column: 1 / -1;
+    font-family: "Karla", sans-serif;
+    border-radius: 5px;
+    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.meme {
+    position: relative;
+    width: 100%;
+    /* Ensure this contains the image properly */
+    max-width: 500px;
+    /* Adjust based on your layout needs */
+    margin-bottom: 20px;
+    /* Space between memes */
+}
+
+.meme--image {
+    max-width: 100%;
+    border-radius: 3px;
+}
+
+.meme--text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    transform: translateX(0);
+    /* Remove any unnecessary transform */
+    color: white;
+    font-size: 2em;
+    text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 0 2px 0 #000, 2px 0 0 #000, 0 -2px 0 #000, -2px 0 0 #000, 2px 2px 5px #000;
+}
+
