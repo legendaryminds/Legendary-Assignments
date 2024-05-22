@@ -2,7 +2,7 @@ import React from "react"
 import { v4 as uuidv4 } from "uuid"; // Import the UUID package
 
 export default function Meme() {
-    // state to store currnet meme
+    // state to store current meme
     const [meme, setMeme] = React.useState({
         topText: "",
         bottomText: "",
@@ -24,9 +24,20 @@ export default function Meme() {
             .then(res => res.json())
             // Parse the response as JSON
             .then(data => setAllMemes(data.data.memes))
+            .catch(error => console.log(error))
         // update the allMemes state with fetched memes
     }, [])
     // Empty dependency array to run the effect only once
+
+    async function getData() {
+        try {
+            const res = await fetch("https://api.imgflip.com/get_memes")
+            const data = await res.json()
+            setAllMemes(data.data.memes)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     // Function to get a random meme image
     function getMemeImage() {

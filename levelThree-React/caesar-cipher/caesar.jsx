@@ -1,10 +1,10 @@
 // Import the readline-sync package
 var readline = require('readline-sync');
 
-// Ask the user for the phrase to encrypt
+// question for user
 var input = readline.question('What phrase would you like to encrypt? ').toLowerCase();
 
-// Ask the user for the number of letters to shift
+// question for user
 var shift = parseInt(readline.question('How many letters would you like to shift? '));
 
 // Function to encrypt the input text using the Caesar cipher
@@ -22,7 +22,7 @@ function caesarCipher(text, shift) {
             var code = text.charCodeAt(i);
 
             // Shift the letter within the bounds of 'a' to 'z'
-            // Check if the letter is lowercase (97 is the char code for 'a')
+            // Check if the letter is lowercase (97 is the char code for 'a', start of lowercase alphabet)
             if ((code >= 97) && (code <= 122)) {
                 // Shift the character and wrap around using modulo if it goes past 'z'
                 char = String.fromCharCode(((code - 97 + shift) % 26) + 97);
