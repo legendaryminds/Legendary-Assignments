@@ -1,3 +1,39 @@
+Parent-Child Relationships
+App component is the parent of both UglyThingForm and UglyThingList components, as they are directly nested within the App component.
+
+UglyThingsProvider component is the ultimate parent because it wraps the App component, thereby providing context to all nested children components, including UglyThingForm and UglyThingList.
+UglyThingsContext provides the context which is used by both UglyThingForm and UglyThingList to access and manipulate the list of ugly things.
+
+
+Summary of Relationships
+UglyThingsProvider (parent) -> App (child)
+App (parent) -> UglyThingForm (child)
+App (parent) -> UglyThingList (child)
+UglyThingsContext (context provider) -> UglyThingForm and UglyThingList (context consumers)
+This structure allows UglyThingForm and UglyThingList to share data and functions via the context provided by UglyThingsProvider
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Step 1: Setting Up Context
 Create UglyThingsContext.js
 Explanation

@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from 'react'; // Import nec
 import axios from 'axios'; // Import axios for API requests
 
 // Create the context
-export const UglyThingsContext = createContext(); // Create a new context named UglyThingsContext
+export const UglyThingsContext = createContext(); 
 
 // Create a provider component
 export const UglyThingsProvider = ({ children }) => {

@@ -1,0 +1,1 @@
+BrowserRouter provides the routing context for your application, allowing you to define routes and navigate between them without a full page refresh.
