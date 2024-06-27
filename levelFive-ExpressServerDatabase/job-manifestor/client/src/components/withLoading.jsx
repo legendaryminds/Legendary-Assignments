@@ -28,4 +28,4 @@ const withLoading = (WrappedComponent) => {
   };
 };
 
-export default withLoading; // Export the withLoading HOC
+export default withLoading; 

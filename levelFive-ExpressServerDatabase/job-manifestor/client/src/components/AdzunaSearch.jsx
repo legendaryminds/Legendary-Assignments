@@ -12,7 +12,7 @@ const AdzunaSearch = () => {
       const response = await axios.get(`/api/adzuna-jobs?search=${searchTerm}`);
       console.log('Adzuna API response:', response.data); // Log the entire response data
       if (response.data.results) {
-        setAdzunaJobs(response.data.results); // Adjust based on actual response structure
+        setAdzunaJobs(response.data.results); 
       } else {
         setAdzunaJobs([]);
       }

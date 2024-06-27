@@ -1,5 +1,5 @@
 // Import necessary modules and packages
-import React from 'react'; // Import React
+import React from 'react'; 
 import { FaStar } from 'react-icons/fa'; // Import FaStar icon from react-icons library
 
 // StarRating component

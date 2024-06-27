@@ -1,7 +1,7 @@
 // Import necessary modules and packages
-import React, { useState, useEffect } from 'react'; // Import React and hooks
-import { useParams, useNavigate } from 'react-router-dom'; // Import hooks from React Router for URL parameters and navigation
-import axios from 'axios'; // Import Axios for making HTTP requests
+import React, { useState, useEffect } from 'react'; 
+import { useParams, useNavigate } from 'react-router-dom'; 
+import axios from 'axios'; 
 
 // EditJob component
 const EditJob = ({ updateJob }) => {
