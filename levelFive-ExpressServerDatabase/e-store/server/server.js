@@ -8,6 +8,8 @@ const port = 3000;
 // Middleware
 app.use(morgan("dev"));
 app.use(express.json());
+// Using morgan for logging requests in 'dev' format
+// Using express.json() to parse JSON bodies
 
 // MongoDB connection
 mongoose
@@ -17,11 +19,11 @@ mongoose
   .then(() => console.log("MongoDB connected..."))
   .catch((err) => console.log(err));
 
-// Routes
+// Setting up routes
 app.use("/api/inventory", require("./routes/InventoryRoutes"));
 
 
-
+// Starting the server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });

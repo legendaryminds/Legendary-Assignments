@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1,
+h2 {
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.job-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.job-table th,
+.job-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.job-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.editable-cell input,
+.editable-cell select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  margin-left: 10px;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+input[type="date"]::before {
+  content: attr(placeholder);
+  color: #aaa;
+  margin-right: 10px;
+}
+
+input[type="date"]:focus::before,
+input[type="date"]:valid::before {
+  content: "";
+}

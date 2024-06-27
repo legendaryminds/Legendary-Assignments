@@ -11,6 +11,7 @@ const BountyForm = ({ addBounty, updateBounty, editMode, initialData, handleCanc
 
   useEffect(() => {
     if (editMode && initialData) {
+      // Set the form with initial data if in edit mode
       setBounty(initialData);
     }
   }, [editMode, initialData]);
@@ -19,6 +20,7 @@ const BountyForm = ({ addBounty, updateBounty, editMode, initialData, handleCanc
     const { name, value } = e.target;
     setBounty(prevBounty => ({
       ...prevBounty,
+      // Convert living field to boolean
       [name]: name === 'living' ? value === 'true' : value
     }));
   };
@@ -26,8 +28,10 @@ const BountyForm = ({ addBounty, updateBounty, editMode, initialData, handleCanc
   const handleSubmit = (e) => {
     e.preventDefault();
     if (editMode) {
+      // Call update function if in edit mode
       updateBounty(bounty._id, bounty);
     } else {
+      // Call add function if in add mode
       addBounty(bounty);
     }
     setBounty({

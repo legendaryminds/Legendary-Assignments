@@ -1,16 +1,18 @@
 const express = require('express')
+// Express for handling routes and server
 const mongoose = require('mongoose')
+// Morgan for logging HTTP requests
 const morgan = require("morgan")
 const Bounty = require('./models/Bounty')
-// const { v4: uuidv4 } = require('uuid')
+
 
 const app = express()
 const port = 7878
 
 
-// Connection string
-const uri = 'mongodb+srv://legendaryminds:VdaceqkAMdSm2nJx@legendarycluster0.jss56ro.mongodb.net/newProjectDatabase?retryWrites=true&w=majority';
-
+// Connection string for MongoDB Atlas
+// const uri = 'mongodb+srv://legendaryminds:VdaceqkAMdSm2nJx@legendarycluster0.jss56ro.mongodb.net/newProjectDatabase?retryWrites=true&w=majority';
+const uri = "mongodb+srv://legendaryminds:nlHGflANYjIMCdmZ@cluster0.kzqrqur.mongodb.net/"
 // Connect to MongoDB Atlas using the new database name
 mongoose.connect(uri)
   .then(() => console.log('Connected to MongoDB Atlas'))
@@ -19,6 +21,7 @@ mongoose.connect(uri)
 
 // Middleware to parse JSON bodies
 app.use(express.json())
+// Middleware to log HTTP requests
 app.use(morgan('dev'))
 
 
@@ -27,7 +30,9 @@ app.use(morgan('dev'))
 app.get('/bounty', async (req, res, next) => {
   try {
     const bounties = await Bounty.find({});
+    // Fetch all bounties from the database
     res.json(bounties);
+    // Send the list of bounties as JSON
   } catch (err) {
     next(err);
   }
@@ -36,10 +41,12 @@ app.get('/bounty', async (req, res, next) => {
 // GET a single bounty by ID
 app.get('/bounty/:id', async (req, res, next) => {
   try {
+    // Extract the ID from the URL parameters
     const { id } = req.params;
+    // Find the bounty by ID
     const bounty = await Bounty.findById(id);
     if (!bounty) {
-      const error = new Error('Bounty not found');
+      const error = new Error("Bounty not found");
       error.status = 404;
       throw error;
     }
@@ -52,24 +59,31 @@ app.get('/bounty/:id', async (req, res, next) => {
 // POST a new bounty
 app.post('/bounty', async (req, res, next) => {
   try {
+    // Create a new Bounty instance with request data
     const newBounty = new Bounty(req.body);
+    // Save the new bounty to the database
     const savedBounty = await newBounty.save();
+    // Send the saved bounty data with status 201 (Created)
     res.status(201).json(savedBounty);
   } catch (err) {
     next(err);
   }
 });
 
-// PUT endpoint to update an existing bounty
+// PUT/Update an existing bounty
 app.put('/bounty/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
-    const updatedBounty = await Bounty.findByIdAndUpdate(id, req.body, { new: true });
+    // Find and update the bounty
+    const updatedBounty = await Bounty.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
     if (!updatedBounty) {
-      const error = new Error('Bounty not found');
+      const error = new Error("Bounty not found");
       error.status = 404;
       throw error;
     }
+    // Send the updated bounty data as JSON
     res.json(updatedBounty);
   } catch (err) {
     next(err);
@@ -105,6 +119,7 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).send({ errMsg: err.message });
 });
 
+// Start the server and listen on the specified port
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

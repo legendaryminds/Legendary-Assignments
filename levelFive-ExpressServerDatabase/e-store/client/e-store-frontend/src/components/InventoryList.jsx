@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const InventoryList = () => {
+  // State for storing items
   const [items, setItems] = useState([]);
+
+  // State for storing new item details
   const [newItem, setNewItem] = useState({
     name: '',
     description: '',
@@ -10,6 +13,7 @@ const InventoryList = () => {
     price: ''
   });
 
+  // Fetch items when the component mounts
   useEffect(() => {
     fetchItems();
   }, []);
@@ -17,6 +21,7 @@ const InventoryList = () => {
   const fetchItems = async () => {
     try {
       const response = await axios.get('/api/inventory');
+      // Fetch items when the component mounts
       setItems(response.data);
     } catch (err) {
       console.error('Error fetching inventory:', err);
@@ -24,6 +29,7 @@ const InventoryList = () => {
   };
 
   const handleInputChange = (e) => {
+    // Getting name and value of the input field
     const { name, value } = e.target;
     setNewItem((prevItem) => ({
       ...prevItem,
@@ -34,8 +40,11 @@ const InventoryList = () => {
   const addItem = async (e) => {
     e.preventDefault();
     try {
+      // Making POST request to add new item
       const response = await axios.post('/api/inventory', newItem);
+      // Adding new item to items state
       setItems((prevItems) => [...prevItems, response.data]);
+      // Resetting newItem state
       setNewItem({ name: '', description: '', quantity: '', price: '' });
     } catch (err) {
       console.error('Error adding item:', err);
@@ -44,7 +53,9 @@ const InventoryList = () => {
 
   const deleteItem = async (id) => {
     try {
+      // Making DELETE request to delete item by ID
       await axios.delete(`/api/inventory/${id}`);
+      // Removing deleted item from items state
       setItems((prevItems) => prevItems.filter((item) => item._id !== id));
     } catch (err) {
       console.error('Error deleting item:', err);

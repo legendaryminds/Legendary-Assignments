@@ -1,12 +1,15 @@
 const express = require('express')
+// Creating a router object
 const router = express.Router()
 const Inventory = require('../models/InventoryModel')
 
 // GET all items
 router.get('/', async (req, res) => {
     try {
-        const items = await Inventory.find();
-        res.status(200).json(items);
+      // Fetching all items from the inventory
+      const items = await Inventory.find();
+      // Sending fetched items as JSON
+      res.status(200).json(items);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -15,11 +18,12 @@ router.get('/', async (req, res) => {
 // GET one item
 router.get('/:id', async (req, res) => {
     try {
-        const item = await Inventory.findById(req.params.id);
-        if (item == null) {
-            return res.status(404).json({ message: 'Item not found' });
-        }
-        res.status(200).json(item);
+      const item = await Inventory.findById(req.params.id);
+      // Checking if item exists
+      if (item == null) {
+        return res.status(404).json({ message: "Item not found" });
+      }
+      res.status(200).json(item);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -55,6 +59,7 @@ router.put('/:id', async (req, res) => {
     }
 })
 
+// DELETE an item
 router.delete("/:id", async (req, res) => {
   try {
     const item = await Inventory.findByIdAndDelete(req.params.id);

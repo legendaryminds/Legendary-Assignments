@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+// Creating a Schema constructor
 const Schema = mongoose.Schema
 
 // Define Inventory Schema
