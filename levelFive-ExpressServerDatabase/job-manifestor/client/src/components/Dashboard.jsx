@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { JobContext } from './JobContext';
 import DashboardContent from './DashboardContent';
+import './App.css';  // Import the general CSS file
 
 const Dashboard = () => {
   const { jobs, fetchJobs } = useContext(JobContext);
@@ -10,7 +11,7 @@ const Dashboard = () => {
   }, [fetchJobs]);
 
   return (
-    <div className="dashboard">
+    <div className="container">
       <h1>Dashboard</h1>
       {jobs.length > 0 ? (
         <DashboardContent jobs={jobs} />

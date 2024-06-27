@@ -1,164 +1,174 @@
 /* App.css */
-/* Styles specific to components within App */
-
 body {
-  font-family: 'Arial, sans-serif';
-  background-color: #f0f0f0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f7f6;
   color: #333;
   margin: 0;
   padding: 0;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 900px;
   margin: 2rem auto;
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 h1,
 h2 {
-  color: #D61C4E;
-  /* Deep fuchsia */
+  color: #9932CC;
+  /* Deep magenta */
+  font-weight: 700;
 }
 
-.btn {
-  display: inline-block;
-  margin: 0.5rem;
-  padding: 0.5rem 1rem;
-  color: #fff;
-  background-color: #D61C4E;
-  /* Deep fuchsia */
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  color: #ffffff;
+  background-color: #4e0325;
+  /* Deep magenta */
   border: none;
   border-radius: 5px;
-  text-decoration: none;
   cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
-.btn:hover {
-  background-color: #B5172E;
-  /* Darker shade of fuchsia */
+button:hover {
+  background-color: #4e0325;
+  /* Darker shade of deep magenta */
 }
 
-.btn-edit {
-  background-color: #4CAF50;
-  /* Green */
+form label {
+  margin-top: 15px;
+  font-weight: bold;
 }
 
-.btn-edit:hover {
-  background-color: #45A049;
-  /* Darker green */
-}
-
-.btn-delete {
-  background-color: #FF5733;
-  /* Orange */
-}
-
-.btn-delete:hover {
-  background-color: #C70039;
-  /* Darker orange */
-}
-
-.job-table {
+form input,
+form select {
+  margin-top: 5px;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
   width: 100%;
-  border-collapse: collapse;
-  overflow-x: auto;
-  display: block;
+  box-sizing: border-box;
+  font-size: 14px;
 }
 
-.job-table th,
-.job-table td {
-  padding: 0.5rem;
-  border: 1px solid #ddd;
-  text-align: left;
-  min-width: 120px;
+form button {
+  margin-top: 20px;
 }
 
-.job-table th {
-  background-color: #D61C4E;
-  /* Deep fuchsia */
-  color: #fff;
-}
-
-.job-table tr:nth-child(even) {
-  background-color: #F7D1E0;
-  /* Soft pink */
-}
-
-.editable-cell {
-  border: none;
-  width: 100%;
-  background-color: transparent;
-  padding: 0.5rem;
-}
-
-.editable-cell:focus {
-  outline: 2px solid #D61C4E;
-  /* Deep fuchsia */
-}
-/* Styles for header and title */
 .header {
+  background-color: #4e0325;
+  /* Deep magenta */
+  padding: 15px 20px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  background-color: #333;
-  color: #fff;
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #dcdcdc;
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin: 0.5rem 0;
+  font-size: 24px;
+  font-weight: 700;
 }
 
-/* Styles for Navbar */
-.navbar {
+.dashboard-content .job-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-content .job-item h3 {
+  margin-top: 0;
+  color: #9932CC;
+  /* Deep magenta */
+  font-weight: 600;
+}
+
+.dashboard-content .job-item p {
+  margin: 5px 0;
+  color: #666666;
+}
+
+.dashboard-content .job-item button {
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.job-form-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.job-form {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+  flex-direction: column;
 }
 
-.nav-link {
-  color: #fff;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
+.job-form label {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.job-form input,
+.job-form select {
+  margin-top: 5px;
+  padding: 12px;
+  border: 1px solid #cccccc;
   border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
 }
 
-.nav-link:hover {
-  background-color: #555;
+.job-form button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #4e0325;
+  /* Deep magenta */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.active {
-  background-color: #007bff;
-  color: #fff;
+.job-form button:hover {
+  background-color: #4e0325;
+  /* Darker shade of deep magenta */
 }
 
-/* Media queries for responsive design */
-@media (min-width: 768px) {
-  .header {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .title {
-    font-size: 3rem;
-  }
+.job-form-container h1 {
+  text-align: center;
+  color: #4e0325;
+  /* Deep magenta */
+  font-weight: 700;
 }
 
-@media (max-width: 767px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-/* App.css */
 .star-rating {
   display: flex;
   justify-content: center;
@@ -202,4 +212,162 @@ h2 {
   .job-table td {
     padding: 0.5rem;
   }
+}
+
+/* Responsive design for navbar */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar a {
+    margin: 5px 0;
+  }
+}
+
+/* Dynamic Page Handling */
+.page-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Job Detail Page */
+.job-detail-container {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.job-detail-container h2 {
+  color: #4e0325;
+  /* Deep magenta */
+  font-weight: 700;
+}
+
+.job-detail-container p {
+  margin: 10px 0;
+  color: #666666;
+}
+
+/* Landing Page */
+.landing-page {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.landing-page h1 {
+  color: #333333;
+  /* Complementary color for deep magenta */
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.landing-page p {
+  font-size: 18px;
+  color: #666666;
+}
+
+.landing-page .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4e0325;
+  /* Deep magenta */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.landing-page .btn:hover {
+  background-color: #4e0325;
+  /* Darker shade of deep magenta */
+}
+
+/* Adzuna Search Page */
+.adzuna-search {
+  text-align: center;
+}
+
+.adzuna-search input {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.adzuna-search button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4e0325;
+  /* Deep magenta */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.adzuna-search button:hover {
+  background-color: #4e0325;
+  /* Darker shade of deep magenta */
+}
+
+.adzuna-job-list {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.adzuna-job {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  width: calc(33.333% - 20px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.adzuna-job h2 {
+  margin-top: 0;
+  color: #4e0325;
+  /* Deep magenta */
+  font-weight: 600;
+}
+
+.adzuna-job p {
+  margin: 5px 0;
+  color: #666666;
+}
+
+.adzuna-job button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #4e0325;
+  /* Deep magenta */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px}
+
+.adzuna-job button:hover {
+  background-color: #4e0325;
 }
