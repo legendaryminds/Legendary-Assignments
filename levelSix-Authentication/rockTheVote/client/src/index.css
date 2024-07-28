@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+#app {
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+}
+
+#navbar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #5c1980;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+#navbar button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#auth-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#auth-form {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#auth-form input {
+  width: 100%;
+  padding: 5px 10px;
+  /* Adjust padding to make input fields smaller */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  height: 30px;
+  /* Set specific height for input fields */
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Add space between buttons */
+  margin-top: 10px;
+  /* Add margin at the top of the form */
+}
+
+.button-container button {
+  height: 30px;
+  /* Match the height of the input fields */
+  width: auto;
+  /* Adjust width to fit content */
+  margin: 0;
+  /* Remove any margin */
+}
+
+#auth-form button,
+.comment-form button,
+.issue button {
+  padding: 5px 10px;
+  /* Adjust padding to make buttons smaller */
+  border: none;
+  border-radius: 4px;
+  background-color: #65347f;
+  color: white;
+  cursor: pointer;
+  height: 30px;
+  /* Match the height of the input fields */
+}
+
+.issue button {
+  margin-right: 10px;
+  /* Add some margin to separate buttons */
+}
+
+.issue {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.issue h1 {
+  font-size: 20px;
+}
+
+.issue p {
+  margin: 10px 0;
+}
+
+.issue img {
+  display: block;
+  margin: 10px 0;
+}
+
+.comment {
+  margin-top: 10px;
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+.comment-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Add spacing between input and button */
+  margin-top: 10px;
+  /* Add margin at the top of the form */
+}
+
+.comment-form input {
+  width: calc(100% - 80px);
+  padding: 5px 10px;
+  /* Ensure the input fields have consistent padding */
+  height: 30px;
+  /* Set specific height for input fields */
+}
+
+.comment-form button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #65347f;
+  color: white;
+  cursor: pointer;
+  height: 30px;
+  /* Match the height of the input fields */
+}
+
+button {
+  margin-right: 40px;
+}
