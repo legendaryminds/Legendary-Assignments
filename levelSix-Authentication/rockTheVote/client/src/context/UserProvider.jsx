@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+// Create the UserContext
 export const UserContext = React.createContext();
 
+// Create a custom axios instance for authenticated requests
 const userAxios = axios.create();
 
+// Interceptor to add the token to the request headers
 userAxios.interceptors.request.use(config => {
   const token = localStorage.getItem('token');
   config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
 
+// UserProvider component to manage user-related state and provide context
 export default function UserProvider(props) {
+  // Initial state setup
   const initState = {
     user: JSON.parse(localStorage.getItem('user')) || {},
     token: localStorage.getItem('token') || '',
@@ -23,6 +28,7 @@ export default function UserProvider(props) {
 
   const [userState, setUserState] = useState(initState);
 
+  // Signup function to create a new user
   async function signup(creds) {
     try {
       const res = await axios.post('/api/auth/signup', creds);
@@ -39,6 +45,7 @@ export default function UserProvider(props) {
     }
   }
 
+  // Login function to authenticate a user
   async function login(creds) {
     try {
       const res = await axios.post('/api/auth/login', creds);
@@ -55,6 +62,7 @@ export default function UserProvider(props) {
     }
   }
 
+  // Logout function to clear user data and token
   function logout() {
     try {
       localStorage.removeItem('user');
@@ -69,6 +77,7 @@ export default function UserProvider(props) {
     }
   }
 
+  // Handle authentication errors
   function handleAuthErr(errMsg) {
     setUserState(prevUserState => ({
       ...prevUserState,
@@ -76,6 +85,7 @@ export default function UserProvider(props) {
     }));
   }
 
+  // Reset authentication errors
   function resetAuthErr() {
     setUserState(prevUserState => ({
       ...prevUserState,
@@ -83,6 +93,7 @@ export default function UserProvider(props) {
     }));
   }
 
+  // Get issues specific to the logged-in user
   async function getUserIssues() {
     try {
       const res = await userAxios.get('/api/main/issues/user');
@@ -95,6 +106,7 @@ export default function UserProvider(props) {
     }
   }
 
+  // Add a new issue
   async function addIssue(newIssue) {
     try {
       const res = await userAxios.post('/api/main/issues', newIssue);
@@ -107,6 +119,7 @@ export default function UserProvider(props) {
     }
   }
 
+  // Get all issues
   async function getAllIssues() {
     try {
       const res = await userAxios.get('/api/main/issues');
@@ -119,6 +132,7 @@ export default function UserProvider(props) {
     }
   }
 
+  // Update an existing issue
   async function updateIssue(issueId, updatedIssue) {
     try {
       const res = await userAxios.put(`/api/main/issues/${issueId}`, updatedIssue);
@@ -136,6 +150,7 @@ export default function UserProvider(props) {
     }
   }
 
+  // Delete an existing issue
   async function deleteIssue(issueId) {
     try {
       await userAxios.delete(`/api/main/issues/${issueId}`);
@@ -149,6 +164,7 @@ export default function UserProvider(props) {
     }
   }
 
+  // Upvote an issue
   async function handleUpvote(issueId) {
     try {
       const res = await userAxios.put(`/api/main/issues/upvotes/${issueId}`);
@@ -162,6 +178,7 @@ export default function UserProvider(props) {
     }
   }
 
+  // Downvote an issue
   async function handleDownvote(issueId) {
     try {
       const res = await userAxios.put(`/api/main/issues/downvotes/${issueId}`);
@@ -175,6 +192,7 @@ export default function UserProvider(props) {
     }
   }
 
+  // Add a new comment
   async function addComment(newComment) {
     try {
       const res = await userAxios.post('/api/main/comments', newComment);
@@ -187,6 +205,7 @@ export default function UserProvider(props) {
     }
   }
 
+  // Get comments for a specific issue
   async function getComments(issueId) {
     try {
       const res = await userAxios.get(`/api/main/comments/${issueId}`);
@@ -196,6 +215,7 @@ export default function UserProvider(props) {
     }
   }
 
+  // Delete a comment
   async function deleteComment(commentId) {
     try {
       await userAxios.delete(`/api/main/comments/${commentId}`);
@@ -208,6 +228,7 @@ export default function UserProvider(props) {
     }
   }
 
+  // Update a comment
   async function updateComment(commentId, updatedComment) {
     try {
       const res = await userAxios.put(`/api/main/comments/${commentId}`, updatedComment);

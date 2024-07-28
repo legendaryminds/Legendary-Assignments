@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 
 function Form(props) {
-
+    // Initial state for form data
     const initState = { username: '', password: '' }
     
+    // State for form data
     const [formData, setFormData] = useState(initState)
 
+    // Destructure props
     const { isMember, submit, errMsg } = props
 
-
-    // const { isMember, submit, errMsg } = props
-
-    // const [formData, setFormData] = useState({ username: '', password: '' }) // Declare formData state
-
+    // Handle change in form inputs
     function handleChange(e) {
         const { name, value } = e.target
         setFormData(prevData => ({
@@ -21,6 +19,7 @@ function Form(props) {
         }))
     }
 
+    // Handle form submission
     function handleSubmit(e) {
         e.preventDefault()
         console.log("Form Data Submitted: ", formData) // Log form data
@@ -45,7 +44,6 @@ function Form(props) {
             />
             <button>{isMember ? "Login" : "Signup"}</button>
             <p style={{color: "red"}}>{ errMsg }</p>
-
         </form>
     );
 }

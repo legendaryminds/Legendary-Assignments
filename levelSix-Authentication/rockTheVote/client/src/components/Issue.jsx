@@ -4,14 +4,24 @@ import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
 
 export default function Issue(props) {
+  // Destructure props
   const { title, description, imgUrl, userId, username, _id, upvotes, downvotes } = props;
+  
+  // Destructure context
   const { user, handleUpvote, handleDownvote, getComments, deleteIssue, updateIssue } = useContext(UserContext);
+  
+  // State for comments
   const [comments, setComments] = useState([]);
+  
+  // State for editing
   const [isEditing, setIsEditing] = useState(false);
+  
+  // State for edited fields
   const [editTitle, setEditTitle] = useState(title);
   const [editDescription, setEditDescription] = useState(description);
   const [editImgUrl, setEditImgUrl] = useState(imgUrl);
 
+  // Fetch comments when component mounts or _id changes
   useEffect(() => {
     async function fetchComments() {
       const commentsData = await getComments(_id);
@@ -20,8 +30,10 @@ export default function Issue(props) {
     fetchComments();
   }, [_id, getComments]);
 
+  // Check if the current user is the owner of the issue
   let isUser = userId === user._id;
 
+  // Handle changes in edit fields
   function handleEditChange(e) {
     const { name, value } = e.target;
     if (name === "editTitle") setEditTitle(value);
@@ -29,12 +41,14 @@ export default function Issue(props) {
     if (name === "editImgUrl") setEditImgUrl(value);
   }
 
+  // Handle issue update
   async function handleUpdate(e) {
     e.preventDefault();
     await updateIssue(_id, { title: editTitle, description: editDescription, imgUrl: editImgUrl });
     setIsEditing(false);
   }
 
+  // Handle image removal
   function handleRemoveImage() {
     setEditImgUrl('');
   }

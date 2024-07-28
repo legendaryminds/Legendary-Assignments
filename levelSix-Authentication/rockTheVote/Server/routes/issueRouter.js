@@ -46,7 +46,7 @@ issueRouter.get("/", async (req, res, next) => {
   }
 });
 
-// Upvote an issue
+// Route to upvote an issue
 issueRouter.put("/upvotes/:issueId", async (req, res, next) => {
   try {
     const updatedIssue = await Issue.findByIdAndUpdate(
@@ -64,7 +64,7 @@ issueRouter.put("/upvotes/:issueId", async (req, res, next) => {
   }
 });
 
-// Downvote an issue
+// Route to downvote an issue
 issueRouter.put("/downvotes/:issueId", async (req, res, next) => {
   try {
     const updatedIssue = await Issue.findByIdAndUpdate(
