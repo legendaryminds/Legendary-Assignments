@@ -1,13 +1,15 @@
-// Import necessary modules and components
+// Home.jsx
 import React from "react";
-import EventList from "../components/EventList";
+import "../App.css"; // Import the CSS file
 
-// Home page component definition
 const Home = () => {
   return (
-    <div>
-      <h1>Welcome to the Event Management System</h1>
-      <EventList />
+    <div className="home-container">
+      <div className="home-content">
+        <h1>Welcome to Event Horizon</h1>
+        <p>Your ultimate destination for managing and attending amazing events.</p>
+        <p>Discover, create, and enjoy events like never before.</p>
+      </div>
     </div>
   );
 };

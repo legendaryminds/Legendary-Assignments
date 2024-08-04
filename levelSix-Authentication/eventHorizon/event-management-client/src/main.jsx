@@ -5,12 +5,18 @@ import "./index.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import AuthProvider from "./context/AuthProvider";
 import EventProvider from "./context/EventProvider";
+import TicketProvider from "./context/TicketProvider";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+// Create a root container using the new API from 'react-dom/client'
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
   <Router>
     <AuthProvider>
       <EventProvider>
-        <App />
+        <TicketProvider>
+          <App />
+        </TicketProvider>
       </EventProvider>
     </AuthProvider>
   </Router>

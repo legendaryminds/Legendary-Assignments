@@ -4,6 +4,7 @@ const Attendee = require("../models/attendee");
 
 // Middleware to protect routes
 const { expressjwt } = require("express-jwt");
+
 attendeeRouter.use(
   expressjwt({ secret: process.env.SECRET, algorithms: ["HS256"] })
 );

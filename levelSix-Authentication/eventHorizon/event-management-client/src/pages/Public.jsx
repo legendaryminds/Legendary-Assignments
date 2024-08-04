@@ -1,13 +1,10 @@
-// Import necessary modules
 import React, { useEffect, useContext } from "react";
 import { EventContext } from "../context/EventProvider";
 import EventList from "../components/EventList";
 
-// Public component definition
 const Public = () => {
   const { events, getEvents } = useContext(EventContext);
 
-  // Fetch events when the component mounts
   useEffect(() => {
     getEvents();
   }, []);

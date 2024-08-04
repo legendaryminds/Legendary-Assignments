@@ -25,15 +25,13 @@ async function connectToDb() {
 // Call the function to connect to the database
 connectToDb();
 
-// Routes for authentication
+// Routes for authentication (no JWT required)
 app.use("/api/auth", require("./routes/authRouter"));
 
-// Middleware to protect routes with JWT
+// Protect all routes under /api/main with JWT
 app.use(
   "/api/main",
-  expressjwt({ secret: process.env.SECRET, algorithms: ["HS256"] }).unless({
-    path: ["/api/auth/login", "/api/auth/signup"],
-  })
+  expressjwt({ secret: process.env.SECRET, algorithms: ["HS256"] })
 );
 
 // Routes for events, tickets, and attendees
@@ -44,12 +42,15 @@ app.use("/api/main/attendees", require("./routes/attendeeRouter"));
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.log(err);
-  if (err.name === "UnauthorizedError") {
-    res.status(err.status);
+  if (!res.headersSent) {
+    if (err.name === "UnauthorizedError") {
+      res.status(err.status).send({ errMsg: err.message });
+    } else {
+      res.status(500).send({ errMsg: err.message });
+    }
   } else {
-    res.status(500);
+    next(err);
   }
-  return res.send({ errMsg: err.message });
 });
 
 // Start the server

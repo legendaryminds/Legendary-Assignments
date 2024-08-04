@@ -19,9 +19,21 @@ const eventSchema = new Schema({
     type: String,
     required: true, // Location of the event is required
   },
+  venue: {
+    type: String,
+    required: true, // Venue of the event is required
+  },
   ticketPrice: {
     type: Number,
     required: true, // Ticket price is required
+  },
+  category: {
+    type: String,
+    required: true, // Category of the event is required
+  },
+  genre: {
+    type: String,
+    required: true, // Genre of the event is required
   },
   userId: {
     type: Schema.Types.ObjectId,

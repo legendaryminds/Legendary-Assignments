@@ -1,23 +1,26 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { AuthContext } from "../context/AuthProvider";
 
 const Auth = () => {
   const { signup, login } = useContext(AuthContext);
   const [credentials, setCredentials] = useState({ username: "", password: "" });
   const [isMember, setIsMember] = useState(true);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCredentials((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (isMember) {
-      login(credentials);
+      await login(credentials);
     } else {
-      signup(credentials);
+      await signup(credentials);
     }
+    navigate("/home"); // Navigate to the home page after login or signup
   };
 
   return (

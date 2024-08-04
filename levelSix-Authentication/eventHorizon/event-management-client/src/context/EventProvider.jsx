@@ -1,67 +1,78 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useEffect, useCallback, useContext, useRef } from "react";
 import axios from "axios";
 import { AuthContext } from "./AuthProvider";
 
-// Create the EventContext
 export const EventContext = createContext();
 
-// EventProvider component definition
 const EventProvider = ({ children }) => {
-    const { token, user } = useContext(AuthContext); // Get the token from AuthContext
-    const [events, setEvents] = useState([]);
-    const [userEvents, setUserEvents] = useState([]);
-    const [event, setEvent] = useState(null);
+  const { token } = useContext(AuthContext);
+  const [events, setEvents] = useState([]);
+  const [userEvents, setUserEvents] = useState([]);
+  const fetchedRef = useRef(false);
 
-  // Fetch all public events
-    const getEvents = async () => {
+  // Custom axios instance for authenticated requests
+  const eventAxios = axios.create({
+    baseURL: "/api/main",
+  });
+
+  eventAxios.interceptors.request.use(config => {
+    config.headers.Authorization = `Bearer ${token}`;
+    return config;
+  });
+
+  // Function to get all public events
+  const getEvents = useCallback(async () => {
     try {
-      const res = await axios.get("/api/main/events", {
-        headers: { Authorization: `Bearer ${token}` } // Include the token in the headers
-      });
+      const res = await axios.get("/api/main/events/public");
+      console.log("Fetched events:", res.data);
       setEvents(res.data);
     } catch (error) {
       console.error("Error fetching events", error);
     }
-  };
-    
-    // Fetch user-specific events
-  const getUserEvents = async () => {
+  }, []);
+
+  // Function to get user-specific events
+  const getUserEvents = useCallback(async () => {
+    if (fetchedRef.current) return; // Check if already fetched to prevent redundant calls
+    fetchedRef.current = true;
     try {
-      const res = await axios.get(`/api/main/events/user/${user._id}`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      const res = await eventAxios.get("/events/user");
+      console.log("Fetched user events:", res.data);
       setUserEvents(res.data);
     } catch (error) {
       console.error("Error fetching user events", error);
     }
-  };
+  }, [eventAxios, token]);
 
-  // Fetch a single event by ID
-  const getEventById = async (id) => {
+  // Function to create a new event
+  const createEvent = useCallback(async (eventData) => {
     try {
-      const res = await axios.get(`/api/main/events/${id}`, {
-        headers: { Authorization: `Bearer ${token}` } // Include the token in the headers
-      });
-      setEvent(res.data);
-    } catch (error) {
-      console.error("Error fetching event", error);
-    }
-  };
-
-  // Create a new event
-  const createEvent = async (newEvent) => {
-    try {
-      const res = await axios.post("/api/main/events", newEvent, {
-        headers: { Authorization: `Bearer ${token}` } // Include the token in the headers
-      });
-      setUserEvents([...events, res.data]);
+      const res = await eventAxios.post("/events", eventData); // Make POST request to create event
+      console.log("Event created:", res.data);
+      setUserEvents((prev) => [...prev, res.data]); // Update userEvents state with the new event
     } catch (error) {
       console.error("Error creating event", error);
     }
-  };
+  }, [eventAxios]);
+
+  // Function to update an event
+  const updateEvent = useCallback(async (id, updatedEvent) => {
+    try {
+      const res = await eventAxios.put(`/events/${id}`, updatedEvent);
+      setUserEvents(prevEvents => prevEvents.map(event => (event._id === id ? res.data : event)));
+      getEvents(); // Refresh all events if necessary
+    } catch (error) {
+      console.error("Error updating event", error);
+    }
+  }, [eventAxios, getEvents]);
+
+  // Fetch public events when the component mounts
+  useEffect(() => {
+    getEvents();
+  }, [getEvents]);
 
   return (
-    <EventContext.Provider value={{ events, userEvents, event, getEvents, getUserEvents, getEventById, createEvent }}>
+    <EventContext.Provider value={{ events, userEvents, getEvents, getUserEvents, createEvent, updateEvent }}>
       {children}
     </EventContext.Provider>
   );

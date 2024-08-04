@@ -4,6 +4,16 @@ import axios from "axios";
 // Create the AuthContext
 export const AuthContext = createContext();
 
+// Custom axios instance for authenticated requests
+const authAxios = axios.create();
+
+// Interceptor to add the token to the request headers
+authAxios.interceptors.request.use(config => {
+  const token = localStorage.getItem('token');
+  config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+
 // AuthProvider component definition
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")) || null);
@@ -12,9 +22,9 @@ const AuthProvider = ({ children }) => {
   // Update Axios default headers when token changes
   useEffect(() => {
     if (token) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      authAxios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     } else {
-      delete axios.defaults.headers.common["Authorization"];
+      delete authAxios.defaults.headers.common["Authorization"];
     }
   }, [token]);
 
@@ -22,10 +32,11 @@ const AuthProvider = ({ children }) => {
   const signup = async (credentials) => {
     try {
       const res = await axios.post("/api/auth/signup", credentials);
-      setUser(res.data.user);
-      setToken(res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
-      localStorage.setItem("token", res.data.token);
+      const { user, token } = res.data;
+      setUser(user);
+      setToken(token);
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("token", token);
     } catch (error) {
       console.error("Error during signup", error);
     }
@@ -35,10 +46,11 @@ const AuthProvider = ({ children }) => {
   const login = async (credentials) => {
     try {
       const res = await axios.post("/api/auth/login", credentials);
-      setUser(res.data.user);
-      setToken(res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
-      localStorage.setItem("token", res.data.token);
+      const { user, token } = res.data;
+      setUser(user);
+      setToken(token);
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("token", token);
     } catch (error) {
       console.error("Error during login", error);
     }

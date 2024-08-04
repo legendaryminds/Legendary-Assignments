@@ -1,16 +1,43 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { EventContext } from "../context/EventProvider";
 
-const EventForm = () => {
-  const { createEvent } = useContext(EventContext);
+// Categories and genres
+const categories = {
+  Music: ["Alternative", "Classical", "Country", "Electronic", "Hip Hop", "Jazz", "Pop", "Rock"],
+  Art: ["Exhibition", "Fair", "Gallery", "Street Art"],
+  Dance: ["Ballet", "Contemporary", "Hip Hop", "Salsa", "Tap"],
+  Theater: ["Comedy", "Drama", "Musical", "Opera"],
+  // Add more categories and genres as needed
+};
+
+const EventForm = ({ eventToEdit, clearEdit }) => {
+  const { createEvent, updateEvent } = useContext(EventContext);
 
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     date: "",
     location: "",
-    ticketPrice: "", // Add ticketPrice to form state
+    venue: "",  // Added venue field
+    ticketPrice: "", // Ticket price field
+    category: "",
+    genre: "",
   });
+
+  useEffect(() => {
+    if (eventToEdit) {
+      setFormData({
+        title: eventToEdit.title,
+        description: eventToEdit.description,
+        date: eventToEdit.date.slice(0, 10), // Format date for input
+        location: eventToEdit.location,
+        venue: eventToEdit.venue,  // Populate venue field
+        ticketPrice: eventToEdit.ticketPrice, // Populate ticket price field
+        category: eventToEdit.category,
+        genre: eventToEdit.genre,
+      });
+    }
+  }, [eventToEdit]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,13 +49,27 @@ const EventForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createEvent(formData);
+    const adjustedData = {
+      ...formData,
+      date: new Date(formData.date).toISOString(), // Convert date to UTC
+    };
+
+    if (eventToEdit) {
+      updateEvent(eventToEdit._id, adjustedData);
+      clearEdit();
+    } else {
+      createEvent(adjustedData);
+    }
+
     setFormData({
       title: "",
       description: "",
       date: "",
       location: "",
-      ticketPrice: "", // Reset ticketPrice field
+      venue: "",  // Reset venue field
+      ticketPrice: "", // Reset ticket price field
+      category: "",
+      genre: "",
     });
   };
 
@@ -66,14 +107,46 @@ const EventForm = () => {
         required
       />
       <input
+        type="text"
+        name="venue"
+        value={formData.venue}
+        onChange={handleChange}
+        placeholder="Event Venue"
+        required
+      />
+      <input
         type="number"
         name="ticketPrice"
         value={formData.ticketPrice}
         onChange={handleChange}
-        placeholder="Ticket Price"
+        placeholder="Ticket Price" 
         required
       />
-      <button type="submit">Create Event</button>
+      <select
+        name="category"
+        value={formData.category}
+        onChange={handleChange}
+        required
+      >
+        <option value="">Select Category</option>
+        {Object.keys(categories).map((category) => (
+          <option key={category} value={category}>{category}</option>
+        ))}
+      </select>
+      <select
+        name="genre"
+        value={formData.genre}
+        onChange={handleChange}
+        required
+        disabled={!formData.category}
+      >
+        <option value="">Select Genre</option>
+        {formData.category && categories[formData.category].map((genre) => (
+          <option key={genre} value={genre}>{genre}</option>
+        ))}
+      </select>
+      <button type="submit">{eventToEdit ? "Update Event" : "Create Event"}</button>
+      {eventToEdit && <button type="button" onClick={clearEdit}>Cancel</button>}
     </form>
   );
 };
