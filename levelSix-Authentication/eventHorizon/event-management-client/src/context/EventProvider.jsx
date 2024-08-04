@@ -1,3 +1,4 @@
+// EventProvider.jsx
 import React, { createContext, useState, useEffect, useCallback, useContext, useRef } from "react";
 import axios from "axios";
 import { AuthContext } from "./AuthProvider";
@@ -20,10 +21,15 @@ const EventProvider = ({ children }) => {
     return config;
   });
 
+  // Public axios instance for unauthenticated requests
+  const publicAxios = axios.create({
+    baseURL: "/api/public",
+  });
+
   // Function to get all public events
   const getEvents = useCallback(async () => {
     try {
-      const res = await axios.get("/api/main/events/public");
+      const res = await publicAxios.get("/events");
       console.log("Fetched events:", res.data);
       setEvents(res.data);
     } catch (error) {

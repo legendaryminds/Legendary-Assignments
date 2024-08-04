@@ -1,5 +1,5 @@
-// Import necessary modules
 const express = require("express");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 require("dotenv").config();
@@ -7,6 +7,9 @@ const { expressjwt } = require("express-jwt");
 
 // Initialize Express app
 const app = express();
+
+// Use cors middleware
+app.use(cors());
 
 // Middleware for parsing JSON and logging HTTP requests
 app.use(express.json());
@@ -28,14 +31,17 @@ connectToDb();
 // Routes for authentication (no JWT required)
 app.use("/api/auth", require("./routes/authRouter"));
 
+// Public routes (no JWT required)
+app.use("/api/public/events", require("./routes/eventRouter").publicRouter);
+
 // Protect all routes under /api/main with JWT
 app.use(
   "/api/main",
   expressjwt({ secret: process.env.SECRET, algorithms: ["HS256"] })
 );
 
-// Routes for events, tickets, and attendees
-app.use("/api/main/events", require("./routes/eventRouter"));
+// Protected routes for events, tickets, and attendees
+app.use("/api/main/events", require("./routes/eventRouter").protectedRouter);
 app.use("/api/main/tickets", require("./routes/ticketRouter"));
 app.use("/api/main/attendees", require("./routes/attendeeRouter"));
 
