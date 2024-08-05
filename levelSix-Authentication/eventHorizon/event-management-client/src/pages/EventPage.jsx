@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { EventContext } from "../context/EventProvider";
 import TicketForm from "../components/TicketForm";
+import { format } from "date-fns";
 
 const EventPage = () => {
   const { id } = useParams();
@@ -30,7 +31,7 @@ const EventPage = () => {
     <div>
       <h2>{event.title}</h2>
       <p>{event.description}</p>
-      <p>{new Date(event.date).toLocaleDateString()}</p>
+      <p>{format(new Date(event.date), 'MM/dd/yyyy')}</p>
       <p>{event.location}</p>
       <p>{event.venue}</p> {/* Add venue information here */}
       <p>Ticket Price: {event.ticketPrice > 0 ? `$${event.ticketPrice}` : "Free"}</p>

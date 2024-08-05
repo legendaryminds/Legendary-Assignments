@@ -1,4 +1,3 @@
-// Profile.jsx
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import { EventContext } from "../context/EventProvider";
@@ -9,6 +8,11 @@ const Profile = () => {
   const { user } = useContext(AuthContext);
   const { userEvents, getUserEvents, deleteEvent, updateEvent } = useContext(EventContext);
   const [eventToEdit, setEventToEdit] = useState(null);
+
+  // Function to capitalize username
+  const capitalizeUsername = (username) => {
+    return username.charAt(0).toUpperCase() + username.slice(1);
+  };
 
   // Fetch user-specific events when the user changes or component mounts
   useEffect(() => {
@@ -34,11 +38,14 @@ const Profile = () => {
   }
 
   return (
-    <div>
-      <h1>{user.username}'s Events</h1>
+    <div className="profile-container">
+      <h1 className="profile-header">Events On The Horizon</h1>
+      <h2>{eventToEdit ? "Edit Event Details" : "Create a New Event"}</h2>
       <EventForm eventToEdit={eventToEdit} clearEdit={clearEdit} updateEvent={updateEvent} />
-      <h2>{user.username}'s Events</h2>
-      <EventList events={userEvents} onEdit={handleEdit} onDelete={handleDelete} />
+      <div className="event-list-container">
+        <h2>{capitalizeUsername(user.username)}'s Event List</h2>
+        <EventList events={userEvents} onEdit={handleEdit} onDelete={handleDelete} />
+      </div>
     </div>
   );
 };

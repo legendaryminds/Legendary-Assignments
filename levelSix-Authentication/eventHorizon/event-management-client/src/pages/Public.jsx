@@ -7,12 +7,14 @@ const Public = () => {
 
   useEffect(() => {
     getEvents();
-  }, []);
+  }, [getEvents]);
 
   return (
-    <div>
-      <h1>Public Events</h1>
-      <EventList events={events} />
+    <div className="public-container">
+      <h1 className="public-header">Public Events</h1>
+      <div className="event-list-container">
+        <EventList events={events} />
+      </div>
     </div>
   );
 };
