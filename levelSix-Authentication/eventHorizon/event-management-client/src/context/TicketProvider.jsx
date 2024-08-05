@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect, useCallback } from "react";
+import React, { createContext, useState, useContext, useEffect, useCallback, useRef } from "react";
 import axios from "axios";
 import { AuthContext } from "./AuthProvider";
 
@@ -17,6 +17,7 @@ ticketAxios.interceptors.request.use(config => {
 const TicketProvider = ({ children }) => {
   const { user } = useContext(AuthContext);
   const [tickets, setTickets] = useState([]);
+  const [ticketsUpdated, setTicketsUpdated] = useState(false);
 
   const getUserTickets = useCallback(async () => {
     try {
@@ -26,6 +27,7 @@ const TicketProvider = ({ children }) => {
         return { ...ticket, event: eventRes.data };
       }));
       setTickets(fetchedTickets);
+      setTicketsUpdated(false); // Reset the flag after fetching tickets
     } catch (error) {
       console.error("Error fetching user tickets", error.response ? error.response.data : error.message);
     }
@@ -36,6 +38,12 @@ const TicketProvider = ({ children }) => {
       getUserTickets();
     }
   }, [user, getUserTickets]);
+
+  useEffect(() => {
+    if (ticketsUpdated) {
+      getUserTickets();
+    }
+  }, [ticketsUpdated, getUserTickets]);
 
   const getTicketById = async (ticketId) => {
     try {
@@ -52,6 +60,7 @@ const TicketProvider = ({ children }) => {
     try {
       const res = await ticketAxios.post("/tickets", ticketData);
       setTickets(prevTickets => [...prevTickets, res.data]);
+      setTicketsUpdated(true); // Set the flag to true when a new ticket is created
     } catch (error) {
       console.error("Error creating ticket", error.response ? error.response.data : error.message);
     }

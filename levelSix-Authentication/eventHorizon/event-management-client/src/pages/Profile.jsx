@@ -1,3 +1,4 @@
+// Profile.jsx
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import { EventContext } from "../context/EventProvider";
@@ -32,10 +33,6 @@ const Profile = () => {
   const clearEdit = () => {
     setEventToEdit(null);
   };
-
-  if (!userEvents.length) { // Ensure userEvents is an array
-    return <div>Loading events...</div>;
-  }
 
   return (
     <div className="profile-container">

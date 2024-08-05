@@ -72,13 +72,24 @@ const EventProvider = ({ children }) => {
     }
   }, [eventAxios, getEvents]);
 
+  // Function to delete an event
+  const deleteEvent = useCallback(async (id) => {
+    try {
+      await eventAxios.delete(`/events/${id}`);
+      setUserEvents(prevEvents => prevEvents.filter(event => event._id !== id));
+      getEvents(); // Refresh all events if necessary
+    } catch (error) {
+      console.error("Error deleting event", error);
+    }
+  }, [eventAxios, getEvents]);
+
   // Fetch public events when the component mounts
   useEffect(() => {
     getEvents();
   }, [getEvents]);
 
   return (
-    <EventContext.Provider value={{ events, userEvents, getEvents, getUserEvents, createEvent, updateEvent }}>
+    <EventContext.Provider value={{ events, userEvents, getEvents, getUserEvents, createEvent, updateEvent, deleteEvent }}>
       {children}
     </EventContext.Provider>
   );
