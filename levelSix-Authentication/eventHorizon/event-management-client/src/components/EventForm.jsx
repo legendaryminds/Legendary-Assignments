@@ -3,17 +3,17 @@ import { EventContext } from "../context/EventProvider";
 
 // Categories and genres
 const categories = {
-  Music: ["Alternative", "Classical", "Country", "Electronic", "Hip Hop", "Jazz", "Pop", "Rock"],
+  Music: ["Alternative", "Classical", "Bluegrass/Country", "Electronic", "Hip Hop", "Jazz", "Pop", "Rock"],
   Art: ["Exhibition", "Fair", "Gallery", "Street Art"],
-  Dance: ["Ballet", "Contemporary", "Hip Hop", "Salsa", "Tap"],
-  Theater: ["Comedy", "Drama", "Musical", "Opera"],
+  Dance: ["Ballet", "Burlesque", "Hip Hop", "Pole", "Salsa"],
+  Theater: ["Comedy", "Drama", "Musical", "Vaudeville"],
   // Add more categories and genres as needed
 };
 
-const EventForm = ({ eventToEdit, clearEdit }) => {
-  const { createEvent, updateEvent } = useContext(EventContext);
+const EventForm = ({ eventToEdit, clearEdit, updateEvent }) => {
+  const { createEvent } = useContext(EventContext);
 
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     title: "",
     description: "",
     date: "",
@@ -22,7 +22,9 @@ const EventForm = ({ eventToEdit, clearEdit }) => {
     ticketPrice: "", // Ticket price field
     category: "",
     genre: "",
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
 
   useEffect(() => {
     if (eventToEdit) {
@@ -36,6 +38,8 @@ const EventForm = ({ eventToEdit, clearEdit }) => {
         category: eventToEdit.category,
         genre: eventToEdit.genre,
       });
+    } else {
+      setFormData(initialFormData);
     }
   }, [eventToEdit]);
 
@@ -61,16 +65,12 @@ const EventForm = ({ eventToEdit, clearEdit }) => {
       createEvent(adjustedData);
     }
 
-    setFormData({
-      title: "",
-      description: "",
-      date: "",
-      location: "",
-      venue: "",  // Reset venue field
-      ticketPrice: "", // Reset ticket price field
-      category: "",
-      genre: "",
-    });
+    setFormData(initialFormData);
+  };
+
+  const handleCancel = () => {
+    clearEdit();
+    setFormData(initialFormData);
   };
 
   return (
@@ -146,7 +146,7 @@ const EventForm = ({ eventToEdit, clearEdit }) => {
         ))}
       </select>
       <button type="submit">{eventToEdit ? "Update Event" : "Create Event"}</button>
-      {eventToEdit && <button type="button" onClick={clearEdit}>Cancel</button>}
+      {eventToEdit && <button type="button" onClick={handleCancel}>Cancel</button>}
     </form>
   );
 };

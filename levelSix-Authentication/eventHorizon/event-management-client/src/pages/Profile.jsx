@@ -41,7 +41,14 @@ const Profile = () => {
       <EventForm eventToEdit={eventToEdit} clearEdit={clearEdit} updateEvent={updateEvent} />
       <div className="event-list-container">
         <h2>{capitalizeUsername(user.username)}'s Event List</h2>
-        <EventList events={userEvents} onEdit={handleEdit} onDelete={handleDelete} />
+        <EventList
+          events={userEvents}
+          onEdit={handleEdit}
+          onDelete={handleDelete}
+          eventToEdit={eventToEdit}
+          clearEdit={clearEdit}
+          updateEvent={updateEvent}
+        />
       </div>
     </div>
   );
