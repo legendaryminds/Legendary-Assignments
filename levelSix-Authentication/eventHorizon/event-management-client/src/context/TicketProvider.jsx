@@ -48,8 +48,17 @@ const TicketProvider = ({ children }) => {
     }
   };
 
+  const createTicket = async (ticketData) => {
+    try {
+      const res = await ticketAxios.post("/tickets", ticketData);
+      setTickets(prevTickets => [...prevTickets, res.data]);
+    } catch (error) {
+      console.error("Error creating ticket", error.response ? error.response.data : error.message);
+    }
+  };
+
   return (
-    <TicketContext.Provider value={{ tickets, getUserTickets, getTicketById }}>
+    <TicketContext.Provider value={{ tickets, getUserTickets, getTicketById, createTicket }}>
       {children}
     </TicketContext.Provider>
   );

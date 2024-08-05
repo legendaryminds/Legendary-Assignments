@@ -12,16 +12,21 @@ const MyTickets = () => {
   if (tickets.length === 0) return <div>No tickets found.</div>;
 
   return (
-    <div>
-      <h1>My Tickets</h1>
-      <ul>
-        {tickets.map(ticket => (
-          <li key={ticket._id}>
-            Event: {ticket.event.title}, Date: {new Date(ticket.event.date).toLocaleDateString()}, Venue: {ticket.event.location}, Price: {ticket.price > 0 ? `$${ticket.price}` : "Free"}
-            <Link to={`/tickets/${ticket._id}`}>View Ticket</Link>
-          </li>
-        ))}
-      </ul>
+    <div className="my-tickets-container">
+      <h1 className="my-tickets-header">My Tickets</h1>
+      <div className="ticket-list-container">
+        <ul className="ticket-list">
+          {tickets.map(ticket => (
+            <li key={ticket._id} className="ticket-item">
+              <p className="ticket-title">Event: {ticket.event.title}</p>
+              <p className="ticket-date">Date: {new Date(ticket.event.date).toLocaleDateString()}</p>
+              <p className="ticket-location">Venue: {ticket.event.location}</p>
+              <p className="ticket-price">Price: {ticket.price > 0 ? `$${ticket.price}` : "Free"}</p>
+              <Link to={`/tickets/${ticket._id}`} className="view-ticket-link">View Ticket</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
